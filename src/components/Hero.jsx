@@ -1,12 +1,31 @@
 /* Hero Section — cinematic, premium, hotel-first */
+import { useEffect, useState } from 'react'
 
 export default function Hero() {
+  const [footerNear, setFooterNear] = useState(false)
+  const [trustCompact, setTrustCompact] = useState(false)
+
   const trustItems = [
     { value: 'Premium', label: 'Accommodation' },
     { value: 'Conference', label: 'Facilities' },
     { value: 'Business', label: 'Hospitality' },
     { value: 'Refined', label: 'Guest Experience' },
   ]
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const footer = document.querySelector('footer')
+      if (footer) {
+        const footerRect = footer.getBoundingClientRect()
+        setFooterNear(footerRect.top <= window.innerHeight + 48)
+      }
+      setTrustCompact(window.scrollY > 220)
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <section id="home" className="relative min-h-screen flex flex-col overflow-hidden">
@@ -106,29 +125,43 @@ export default function Hero() {
 
       </div>
 
-      {/* Trust Strip (fixed to bottom as a centered panel) */}
-      <div className="fixed bottom-6 left-1/2 z-40 w-[calc(100%-2rem)] max-w-6xl -translate-x-1/2 rounded-3xl bg-forest/90 border border-white/10 shadow-2xl">
+      {/* Trust Strip (fixed to bottom as a centered panel or compact bottom-right badge) */}
+      <div className={`floating-panel fixed z-40 transition-all duration-300 ${trustCompact ? 'bottom-6 right-6 left-auto w-auto max-w-xs rounded-full bg-forest/95 border border-white/15 shadow-2xl px-4 py-3' : 'left-1/2 w-[calc(100%-2rem)] max-w-6xl -translate-x-1/2 rounded-3xl bg-forest/90 border border-white/10 shadow-2xl ' + (footerNear ? 'bottom-24' : 'bottom-6')}`}>
 
-        <div className="px-4 py-5 sm:px-6 lg:px-8">
+        <div className={trustCompact ? 'flex items-center gap-3 text-left' : 'px-4 py-5 sm:px-6 lg:px-8'}>
 
-          <div className="flex flex-wrap md:flex-nowrap text-center">
-
-            {trustItems.map((item) => (
-              <div
-                key={item.label}
-                className="flex-1 py-3 md:border-r last:border-r-0 border-white/10"
-              >
-                <p className="font-serif text-xl md:text-2xl text-gold">
-                  {item.value}
+          {trustCompact ? (
+            <>
+              <span className="inline-flex h-3.5 w-3.5 shrink-0 rounded-full bg-gold animate-pulse" />
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.35em] text-gold/90">
+                  Trusted at a glance
                 </p>
-
-                <p className="text-white/85 text-xs tracking-widest uppercase mt-2">
-                  {item.label}
+                <p className="text-white/85 text-xs leading-tight">
+                  Premium rooms · Dining · Meetings
                 </p>
               </div>
-            ))}
+            </>
+          ) : (
+            <div className="flex flex-wrap md:flex-nowrap text-center">
 
-          </div>
+              {trustItems.map((item) => (
+                <div
+                  key={item.label}
+                  className="flex-1 py-3 md:border-r last:border-r-0 border-white/10"
+                >
+                  <p className="font-serif text-xl md:text-2xl text-gold">
+                    {item.value}
+                  </p>
+
+                  <p className="text-white/85 text-xs tracking-widest uppercase mt-2">
+                    {item.label}
+                  </p>
+                </div>
+              ))}
+
+            </div>
+          )}
 
         </div>
 

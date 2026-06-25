@@ -22,8 +22,8 @@ const galleryImages = [
     alt: 'Dining Experience',
   },
   {
-    src: '/events1.webp',
-    alt: 'Events',
+    src: '/lounge1.webp',
+    alt: 'Lounge Area',
   },
 ]
 

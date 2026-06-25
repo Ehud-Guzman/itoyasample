@@ -44,58 +44,43 @@ export default function Navbar() {
       <div className={`hidden lg:block border-b border-stone/5 transition-all duration-300 ${scrolled ? 'max-h-0 opacity-0 overflow-hidden' : 'max-h-11 opacity-100'}`}>
         <div className="max-w-7xl mx-auto px-8">
 
-          <div className="h-11 flex items-center justify-between">
+          <div className="h-11 flex items-center justify-between gap-6">
 
-            <div className="flex items-center gap-3">
-              <span className="font-serif text-lg text-forest">
-                15
-              </span>
-
-              <span className="uppercase tracking-[0.28em] text-[10px] text-ink/60">
-                Anniversary
-              </span>
+            <div className="flex items-center gap-3 text-forest">
+              <span className="h-2 w-2 rounded-full bg-gold animate-pulse" />
+              <div>
+                <p className="font-sans uppercase tracking-[0.35em] text-[10px] text-gold">
+                  Hotel Itoya
+                </p>
+                <p className="text-[11px] text-ink/70">
+                  Refined stays, dining, and meetings in Busia.
+                </p>
+              </div>
             </div>
 
             <div className="flex items-center gap-8 text-[11px]">
-
-              <a href="#offers" className={navStyle}>
-                Offers
+              <a href="#rewards" className={navStyle}>
+                Rewards
               </a>
 
-              <a href="#dining" className={navStyle}>
-                Dining
+              <a href="#corporate" className={navStyle}>
+                Corporate
+              </a>
+
+              <a href="#agent" className={navStyle}>
+                Agent
               </a>
 
               <a href="#careers" className={navStyle}>
                 Careers
               </a>
-
-              <a href="#vouchers" className={navStyle}>
-                Gift Vouchers
-              </a>
-
-              <a href="#sustainability" className={navStyle}>
-                Sustainability
-              </a>
             </div>
 
             <a
-              href="#rewards"
-              className="
-                border
-                border-gold/20
-                px-4
-                py-2
-                text-[10px]
-                tracking-[0.24em]
-                uppercase
-                text-gold
-                transition
-                hover:bg-gold
-                hover:text-white
-              "
+              href="#contact"
+              className="inline-flex items-center rounded-full bg-gold px-4 py-2 text-[10px] tracking-[0.24em] uppercase text-white shadow-sm hover:bg-gold-dark transition"
             >
-              Reward Program
+              Book Now
             </a>
 
           </div>

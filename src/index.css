@@ -76,6 +76,15 @@
   background: linear-gradient(135deg, rgba(199,165,107,0.08) 0%, transparent 60%);
 }
 
+.floating-panel {
+  animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-8px); }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
