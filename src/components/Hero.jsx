@@ -95,7 +95,7 @@ export default function Hero() {
         {/* Hero Copy */}
         <div className="max-w-2xl fade-in">
 
-          <h1 className="font-serif font-medium text-white leading-[0.95] mb-8 text-5xl md:text-6xl lg:text-7xl xl:text-8xl drop-shadow-xl">
+          <h1 className="font-sans font-light text-white/95 leading-tight mb-8 text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl tracking-tight drop-shadow-lg">
             Where hospitality meets value
           </h1>
 
