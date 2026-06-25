@@ -55,13 +55,13 @@ const experiences = [
 
 export default function SignatureExperiences() {
   return (
-    <section className="bg-forest py-28">
+    <section className="bg-forest py-20">
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
         {/* Header */}
 
-        <div className="text-center max-w-2xl mx-auto mb-20">
+        <div className="text-center max-w-2xl mx-auto mb-12">
 
           <p className="section-label text-gold mb-4">
             Experience Itoya
@@ -69,10 +69,8 @@ export default function SignatureExperiences() {
 
           <div className="gold-divider mx-auto mb-8" />
 
-          <h2 className="section-heading-light mb-6">
-            Signature
-            <br />
-            <em>Experiences</em>
+          <h2 className="section-heading-light mb-4 text-2xl md:text-3xl">
+            Signature <em>Experiences</em>
           </h2>
 
           <p className="text-white/60 leading-relaxed">
@@ -90,22 +88,22 @@ export default function SignatureExperiences() {
 
             <div
               key={exp.title}
-              className="group bg-forest p-10 hover:bg-[#1B4638] transition duration-300"
+              className="group bg-forest p-6 hover:bg-[#1B4638] transition duration-300"
             >
 
-              <div className="text-gold mb-8 group-hover:translate-x-1 transition-transform">
-                {exp.icon}
-              </div>
+                <div className="text-gold mb-5 group-hover:translate-x-1 transition-transform">
+                  {exp.icon}
+                </div>
 
               <p className="section-label text-gold/60 mb-3">
                 {exp.label}
               </p>
 
-              <h3 className="font-serif text-white text-2xl mb-5">
+              <h3 className="font-serif text-white text-xl mb-4">
                 {exp.title}
               </h3>
 
-              <p className="text-white/55 text-sm leading-relaxed mb-8">
+              <p className="text-white/55 text-sm leading-relaxed mb-6">
                 {exp.description}
               </p>
 

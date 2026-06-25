@@ -8,6 +8,7 @@ import GallerySection from './components/GallerySection'
 import Testimonials from './components/Testimonials'
 import ContactSection from './components/ContactSection'
 import Footer from './components/Footer'
+import ParkingSection from './components/ParkingSection'
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
       <main>
         <Hero />
         <AboutSection />
+        <ParkingSection />
         <SignatureExperiences />
         <RoomsPreview />
         <ConferenceSection />

@@ -1,9 +1,10 @@
 /* Hero Section — cinematic, premium, hotel-first */
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export default function Hero() {
   const [footerNear, setFooterNear] = useState(false)
-  const [trustCompact, setTrustCompact] = useState(false)
+  const [trustMode, setTrustMode] = useState('full')
+  const lastScroll = useRef(0)
 
   const trustItems = [
     { value: 'Premium', label: 'Accommodation' },
@@ -12,6 +13,33 @@ export default function Hero() {
     { value: 'Refined', label: 'Guest Experience' },
   ]
 
+  const slides = [
+    '/hotelitoyagpt1.png',
+    '/lobby2.jpeg',
+    '/lounge1.webp',
+    '/lobby1.webp',
+    '/sitting1.jpeg'
+
+  ]
+
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  // Autoplay slideshow
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCurrentSlide((s) => (s + 1) % slides.length)
+    }, 6000)
+    return () => clearInterval(id)
+  }, [])
+
+  // Preload slides
+  useEffect(() => {
+    slides.forEach((src) => {
+      const img = new Image()
+      img.src = src
+    })
+  }, [])
+
   useEffect(() => {
     const handleScroll = () => {
       const footer = document.querySelector('footer')
@@ -19,7 +47,20 @@ export default function Hero() {
         const footerRect = footer.getBoundingClientRect()
         setFooterNear(footerRect.top <= window.innerHeight + 48)
       }
-      setTrustCompact(window.scrollY > 220)
+
+      const currentScroll = window.scrollY
+      const isScrollingDown = currentScroll > lastScroll.current
+      lastScroll.current = currentScroll
+
+      if (currentScroll <= 220) {
+        setTrustMode('full')
+      } else if (isScrollingDown) {
+        // When scrolling down, hide the trust badge completely
+        setTrustMode('hidden')
+      } else {
+        // When scrolling up, show compact badge
+        setTrustMode('compact')
+      }
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
@@ -30,17 +71,22 @@ export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex flex-col overflow-hidden">
 
-      {/* Background */}
+      {/* Background slideshow */}
       <div className="absolute inset-0 z-0">
-        <img
-          src="/hotelitoyagpt1.png"
-          alt="Hotel exterior and grounds"
-          className="w-full h-full object-cover"
-          loading="eager"
-        />
+        {slides.map((src, i) => (
+          <img
+            key={src}
+            src={src}
+            alt={`Hero slide ${i + 1}`}
+            className={`absolute inset-0 w-full h-full object-cover transform-gpu transition-all duration-1500 ease-in-out will-change-transform will-change-opacity ${
+              currentSlide === i ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+            }`}
+            loading={currentSlide === i ? 'eager' : 'lazy'}
+          />
+        ))}
 
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/25" />
+        <div className="absolute inset-0 bg-black/25 pointer-events-none" />
       </div>
 
       {/* Main Content */}
@@ -50,9 +96,7 @@ export default function Hero() {
         <div className="max-w-2xl fade-in">
 
           <h1 className="font-serif font-medium text-white leading-[0.95] mb-8 text-5xl md:text-6xl lg:text-7xl xl:text-8xl drop-shadow-xl">
-            Stay. Meet.
-            <br />
-            <em className="font-normal">Experience</em> Busia.
+            Where hospitality meets value
           </h1>
 
           <p className="font-sans text-white/90 text-base md:text-lg leading-relaxed mb-10 max-w-xl">
@@ -121,12 +165,12 @@ export default function Hero() {
 
       </div>
 
-      {/* Trust Strip (fixed to bottom as a centered panel or compact bottom-right badge) */}
-      <div className={`floating-panel fixed z-40 transition-all duration-300 ${trustCompact ? 'bottom-6 right-6 left-auto w-auto max-w-xs rounded-full bg-forest/95 border border-white/15 shadow-2xl px-4 py-3' : 'left-1/2 w-[calc(100%-2rem)] max-w-6xl -translate-x-1/2 rounded-3xl bg-forest/90 border border-white/10 shadow-2xl ' + (footerNear ? 'bottom-24' : 'bottom-6')}`}>
+      {/* Trust Strip (fixed to bottom as a centered panel, compact badge, or hidden) */}
+      <div className={`floating-panel fixed z-40 transition-all duration-300 ${trustMode === 'compact' ? 'bottom-6 right-6 left-auto w-auto max-w-xs rounded-full bg-forest/95 border border-white/15 shadow-2xl px-4 py-3 opacity-100' : trustMode === 'hidden' ? 'opacity-0 pointer-events-none' : 'left-1/2 w-[calc(100%-2rem)] max-w-6xl -translate-x-1/2 rounded-3xl bg-forest/90 border border-white/10 shadow-2xl ' + (footerNear ? 'bottom-24' : 'bottom-6')}`}>
 
-        <div className={trustCompact ? 'flex items-center gap-3 text-left' : 'px-4 py-5 sm:px-6 lg:px-8'}>
+        <div className={trustMode === 'compact' ? 'flex items-center gap-3 text-left' : 'px-4 py-5 sm:px-6 lg:px-8'}>
 
-          {trustCompact ? (
+          {trustMode === 'compact' ? (
             <>
               <span className="inline-flex h-3.5 w-3.5 shrink-0 rounded-full bg-gold animate-pulse" />
               <div>
@@ -138,7 +182,7 @@ export default function Hero() {
                 </p>
               </div>
             </>
-          ) : (
+          ) : trustMode === 'full' ? (
             <div className="flex flex-wrap md:flex-nowrap text-center">
 
               {trustItems.map((item) => (
@@ -157,7 +201,7 @@ export default function Hero() {
               ))}
 
             </div>
-          )}
+          ) : null}
 
         </div>
 
