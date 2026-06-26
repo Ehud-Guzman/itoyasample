@@ -48,27 +48,27 @@ function StarRating() {
 
 export default function Testimonials() {
   return (
-    <section className="bg-forest py-24 lg:py-32">
+    <section className="bg-forest py-16 lg:py-24">
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
         {/* Header */}
 
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-12">
 
-          <p className="section-label text-gold mb-4">
+          <p className="section-label text-gold mb-3">
             Guest Experience
           </p>
 
-          <div className="gold-divider mx-auto mb-8" />
+          <div className="gold-divider mx-auto mb-6" />
 
-          <h2 className="section-heading-light mb-6">
+          <h2 className="section-heading-light text-4xl md:text-5xl mb-5">
             Designed Around
             <br />
             <em>Every Stay</em>
           </h2>
 
-          <p className="text-white/75 leading-relaxed">
+          <p className="text-white/75 leading-relaxed text-sm md:text-base">
             Hospitality experiences crafted to create comfort,
             trust, and memorable moments.
           </p>
@@ -77,14 +77,14 @@ export default function Testimonials() {
 
         {/* Cards */}
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
 
           {testimonials.map((t) => (
 
             <div
               key={t.title}
               className={`
-                p-8
+                p-6
                 rounded-md
                 border
                 transition-all
@@ -100,15 +100,15 @@ export default function Testimonials() {
 
               <StarRating />
 
-              <div className="text-gold/50 text-6xl font-serif mb-3">
+              <div className="text-gold/50 text-5xl font-serif mb-3">
                 "
               </div>
 
-              <p className="text-white/85 text-sm leading-relaxed mb-10">
+              <p className="text-white/85 text-sm leading-relaxed mb-8">
                 {t.quote}
               </p>
 
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3">
 
                 <div className="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center">
 

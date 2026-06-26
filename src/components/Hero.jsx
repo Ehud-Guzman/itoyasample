@@ -166,15 +166,15 @@ export default function Hero() {
       </div>
 
       {/* Trust Strip (fixed to bottom as a centered panel, compact badge, or hidden) */}
-      <div className={`floating-panel fixed z-40 transition-all duration-300 ${trustMode === 'compact' ? 'bottom-6 right-6 left-auto w-auto max-w-xs rounded-full bg-forest/95 border border-white/15 shadow-2xl px-4 py-3 opacity-100' : trustMode === 'hidden' ? 'opacity-0 pointer-events-none' : 'left-1/2 w-[calc(100%-2rem)] max-w-6xl -translate-x-1/2 rounded-3xl bg-forest/90 border border-white/10 shadow-2xl ' + (footerNear ? 'bottom-24' : 'bottom-6')}`}>
+      <div className={`floating-panel fixed z-40 transition-all duration-300 hidden lg:block ${trustMode === 'compact' ? 'bottom-4 right-4 left-auto w-auto max-w-xs rounded-full bg-forest/95 border border-white/15 shadow-xl px-3 py-2 opacity-100' : trustMode === 'hidden' ? 'opacity-0 pointer-events-none' : 'left-1/2 w-[min(92vw,44rem)] max-w-5xl -translate-x-1/2 rounded-full bg-forest/85 border border-white/10 shadow-2xl ' + (footerNear ? 'bottom-20' : 'bottom-4')}`}>
 
-        <div className={trustMode === 'compact' ? 'flex items-center gap-3 text-left' : 'px-4 py-5 sm:px-6 lg:px-8'}>
+        <div className={trustMode === 'compact' ? 'flex items-center gap-2 text-left text-[11px]' : 'flex flex-wrap items-center justify-between gap-3 px-3 py-2 text-white/90'}>
 
           {trustMode === 'compact' ? (
             <>
               <span className="inline-flex h-3.5 w-3.5 shrink-0 rounded-full bg-gold animate-pulse" />
               <div>
-                <p className="text-[11px] uppercase tracking-[0.35em] text-gold/90">
+                <p className="uppercase tracking-[0.35em] text-gold/90">
                   Trusted at a glance
                 </p>
                 <p className="text-white/85 text-xs leading-tight">
@@ -183,18 +183,18 @@ export default function Hero() {
               </div>
             </>
           ) : trustMode === 'full' ? (
-            <div className="flex flex-wrap md:flex-nowrap text-center">
+            <div className="flex flex-wrap items-center justify-between gap-4 w-full">
 
               {trustItems.map((item) => (
                 <div
                   key={item.label}
-                  className="flex-1 py-3 md:border-r last:border-r-0 border-white/10"
+                  className="min-w-[9rem] flex-1 py-2 text-center border-white/10 last:border-0 md:border-r"
                 >
-                  <p className="font-serif text-xl md:text-2xl text-gold">
+                  <p className="font-serif text-base text-gold leading-none">
                     {item.value}
                   </p>
 
-                  <p className="text-white/85 text-xs tracking-widest uppercase mt-2">
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-white/70 mt-1 leading-tight">
                     {item.label}
                   </p>
                 </div>
@@ -206,6 +206,8 @@ export default function Hero() {
         </div>
 
       </div>
+
+      {/* Mobile trust strip is removed completely */}
 
     </section>
   )
