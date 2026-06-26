@@ -24,7 +24,6 @@ export default function Hero() {
     '/parking1.jpeg',
     '/parking2.jpeg',
     '/food1.webp',
-    
     '/layout1.jpeg',
     '/events1.jpeg',
     '/events3.jpeg',
@@ -95,14 +94,14 @@ export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex flex-col overflow-hidden">
 
-      {/* Background slideshow — unchanged */}
+      {/* Background slideshow — with object-center to prevent distortion */}
       <div className="absolute inset-0 z-0">
         {slides.map((src, i) => (
           <img
             key={src}
             src={src}
             alt={`Hero slide ${i + 1}`}
-            className={`absolute inset-0 w-full h-full object-cover transform-gpu transition duration-[1400ms] ease-[cubic-bezier(0.4,0,0.2,1)] will-change-transform will-change-opacity ${
+            className={`absolute inset-0 w-full h-full object-cover object-center transform-gpu transition duration-[1400ms] ease-[cubic-bezier(0.4,0,0.2,1)] will-change-transform will-change-opacity ${
               currentSlide === i ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-105 -translate-y-3'
             }`}
             loading={currentSlide === i ? 'eager' : 'lazy'}

@@ -31,7 +31,7 @@ const rooms = [
       "Enhanced Comfort",
     ],
 
-    featured: true,
+   
   },
 
   {

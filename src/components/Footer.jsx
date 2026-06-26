@@ -2,7 +2,7 @@
 
 const footerLinks = {
   Hotel: ['About Us', 'Rooms & Suites', 'Dining', 'Gallery', 'Contact'],
-  Services: ['Conference Facilities', , 'Concierge', 'Events Planning'],
+  Services: ['Conference Facilities', 'Concierge', 'Events Planning'],
   Info: ['Reservations Policy', 'Privacy Policy', 'Terms of Use', 'Accessibility', 'Careers'],
 }
 
@@ -47,7 +47,7 @@ export default function Footer() {
               <p className="font-sans font-light text-xs tracking-widest uppercase text-gold mt-0.5">Busia, Kenya</p>
             </div>
             <p className="font-sans font-light text-white/70 text-sm leading-relaxed mb-6 max-w-xs">
-              A refined destination for accommodation, dining, conferences, and memorable stays — where every detail is considered.
+             Where Hospitality Meets Value.
             </p>
 
             {/* Social links — placeholders */}
@@ -92,20 +92,29 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom bar */}
+      {/* Bottom bar — fully centered */}
       <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-5 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="font-sans text-xs text-white/50">
-            © {year} Hotel Itoya. All rights reserved. Busia, Kenya.
-          </p>
-          <div className="flex items-center gap-4">
-            {/* Concept Demo badge */}
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-5">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-center">
+            <p className="font-sans text-xs text-white/50">
+              © {year} Hotel Itoya. All rights reserved. Busia, Kenya.
+            </p>
+            <span className="hidden sm:inline text-white/20">|</span>
+            <span className="font-sans text-xs text-white/40">
+              Created &amp; managed by{' '}
+              <a
+                href="https://glimmerink.co.ke/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gold/70 hover:text-gold transition-colors duration-200"
+              >
+                Glimmerink Creations
+              </a>
+            </span>
+            <span className="hidden sm:inline text-white/20">|</span>
             <span className="font-sans text-xs text-gold/50 border border-gold/20 px-3 py-1 tracking-widest uppercase">
               Concept Demo
             </span>
-            <p className="font-sans text-xs text-white/40">
-              Designed with precision.
-            </p>
           </div>
         </div>
       </div>
