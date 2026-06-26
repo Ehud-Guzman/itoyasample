@@ -9,63 +9,76 @@ const getTimeGreeting = () => {
   return 'Good evening';
 };
 
-// --- Hotel Itoya FAQ knowledge base (researched & verified) ---
+// --- Enhanced FAQ with keyword scoring ---
 const faq = [
   {
-    keywords: ['check in', 'check-in', 'arrival', 'when can i arrive'],
-    answer: 'Check‑in is from 2:00 PM. Early arrivals are welcome to relax in our lobby until your room is ready.',
+    keywords: ['check in', 'check-in', 'arrival', 'when can i arrive', 'early check in'],
+    answer: 'Check‑in is from 2:00 PM. Early arrivals are welcome to relax in our lobby until your room is ready. Late check‑out is available upon request.',
   },
   {
-    keywords: ['check out', 'check-out', 'departure', 'leave'],
+    keywords: ['check out', 'check-out', 'departure', 'leave', 'late check out'],
     answer: 'Check‑out is at 11:00 AM. Late check‑out is available upon request, subject to availability.',
   },
   {
-    keywords: ['room', 'suite', 'accommodation', 'stay', 'rooms'],
-    answer: 'We offer 60 well-appointed rooms[reference:0][reference:1] with single, twin, or king‑size beds[reference:2]. Each room has an en‑suite bathroom, work desk, TV, and Wi‑Fi[reference:3].',
+    keywords: ['room', 'suite', 'accommodation', 'stay', 'rooms', 'bed', 'twin', 'king'],
+    answer: 'We offer 60 well-appointed rooms with single, twin, or king‑size beds. Each room has an en‑suite bathroom, work desk, TV, and high‑speed Wi‑Fi.',
   },
   {
-    keywords: ['conference', 'meeting', 'event', 'hall', 'delegate'],
-    answer: 'Our spacious conference room accommodates up to 250 delegates[reference:4][reference:5] and is equipped with high‑speed Wi‑Fi and state‑of‑the‑art audiovisual equipment[reference:6][reference:7]. We also offer event planning services and modern tent rentals[reference:8][reference:9].',
+    keywords: ['price', 'prices', 'cost', 'rate', 'how much', 'booking', 'book', 'reserve', 'availability'],
+    answer: 'For room rates, availability, or to make a booking, please visit our booking page or call reception at +254 700 123456. We’d be happy to offer you the best available rate.',
   },
   {
-    keywords: ['wedding', 'weddings', 'ceremony', 'reception'],
-    answer: 'Yes, we offer event planning services for weddings and other celebrations[reference:10][reference:11]. Our versatile venue can be tailored to your needs — please contact our events team for a personalised quote.',
+    keywords: ['conference', 'meeting', 'event', 'hall', 'delegate', 'conference room'],
+    answer: 'Our spacious conference room accommodates up to 250 delegates and is equipped with high‑speed Wi‑Fi, state‑of‑the‑art AV, and catering. We also offer event planning services and modern tent rentals.',
   },
   {
-    keywords: ['restaurant', 'dining', 'food', 'breakfast', 'lunch', 'dinner', 'eat'],
-    answer: 'Our on‑site restaurant serves a range of local and international dishes[reference:12][reference:13]. A complimentary breakfast is served daily[reference:14][reference:15].',
+    keywords: ['wedding', 'weddings', 'ceremony', 'reception', 'event planning'],
+    answer: 'We offer full event planning for weddings and celebrations. Our versatile venue can be tailored to your needs – contact our events team for a personalised quote.',
   },
   {
-    keywords: ['bar', 'drink', 'cocktail'],
-    answer: 'Yes, we have a bar on site where you can enjoy a refreshing drink[reference:16][reference:17].',
+    keywords: ['restaurant', 'dining', 'food', 'breakfast', 'lunch', 'dinner', 'eat', 'menu'],
+    answer: 'Our on‑site restaurant serves local and international dishes. Complimentary breakfast is served daily from 6:30 AM to 10:00 AM.',
   },
   {
-    keywords: ['parking', 'car', 'vehicle', 'park'],
-    answer: 'Yes, we offer free on‑site parking for all guests[reference:18][reference:19].',
+    keywords: ['bar', 'drink', 'cocktail', 'lounge'],
+    answer: 'We have a bar on site where you can enjoy refreshing drinks and light snacks.',
   },
   {
-    keywords: ['wifi', 'internet', 'connection', 'wireless'],
-    answer: 'Complimentary high‑speed Wi‑Fi is available throughout the hotel[reference:20][reference:21].',
+    keywords: ['parking', 'car', 'vehicle', 'park', 'free parking'],
+    answer: 'Yes, we offer free on‑site parking for all guests. It’s secure and well‑lit.',
   },
   {
-    keywords: ['gym', 'fitness', 'workout'],
-    answer: 'Yes, we have a fitness centre available for guests[reference:22].',
+    keywords: ['wifi', 'internet', 'connection', 'wireless', 'password'],
+    answer: 'Complimentary high‑speed Wi‑Fi is available throughout the hotel. The password is displayed at reception and in each room.',
+  },
+  {
+    keywords: ['gym', 'fitness', 'workout', 'exercise'],
+    answer: 'We have a fitness centre with modern equipment, available for all guests.',
+  },
+
+  {
+    keywords: ['spa', 'massage', 'wellness'],
+    answer: 'Our spa offers a range of treatments and massages. Please enquire at reception for availability and pricing.',
   },
   {
     keywords: ['contact', 'phone', 'email', 'number', 'reach'],
-    answer: 'You can reach us at +254 700 123456 or email info@hotelitoya.co.ke.',
+    answer: 'You can reach us at +254 700 123456 or email info@hotelitoya.co.ke. Our reception is open 24/7.',
   },
   {
-    keywords: ['location', 'address', 'where', 'directions'],
-    answer: 'We are located on B1 Kisumu – Busia Road, in the heart of Busia Town[reference:23][reference:24], right on the Kenya‑Uganda border[reference:25].',
+    keywords: ['location', 'address', 'where', 'directions', 'map'],
+    answer: 'We are located on B1 Kisumu – Busia Road, in the heart of Busia Town, right on the Kenya‑Uganda border.',
   },
   {
-    keywords: ['airport', 'shuttle', 'transfer'],
-    answer: 'Yes, we can arrange airport shuttle services upon request for an additional fee[reference:26].',
+    keywords: ['airport', 'shuttle', 'transfer', 'taxi'],
+    answer: 'We can arrange airport shuttle services upon request for an additional fee. Please notify us in advance.',
   },
   {
-    keywords: ['pets', 'dog', 'animal'],
-    answer: 'Unfortunately, we do not allow pets on the premises[reference:27][reference:28].',
+    keywords: ['pets', 'dog', 'animal', 'pet friendly'],
+    answer: 'Unfortunately, we do not allow pets on the premises.',
+  },
+  {
+    keywords: ['breakfast hours', 'breakfast time', 'when is breakfast'],
+    answer: 'Breakfast is served from 6:30 AM to 10:00 AM daily in the restaurant.',
   },
 ];
 
@@ -89,14 +102,38 @@ export default function ChatBot() {
     scrollToBottom();
   }, [messages]);
 
+  // --- Smarter answer finder: scoring based on keyword matches ---
   const findAnswer = (question) => {
-    const lower = question.toLowerCase();
+    const lower = question.toLowerCase().trim();
+    if (!lower) return "Please ask a question, and I'll do my best to help.";
+
+    let bestEntry = null;
+    let bestScore = 0;
+
     for (const entry of faq) {
-      if (entry.keywords.some((kw) => lower.includes(kw))) {
-        return entry.answer;
+      let score = 0;
+      for (const kw of entry.keywords) {
+        // Count how many keywords appear (exact substring match)
+        if (lower.includes(kw.toLowerCase())) {
+          score += 1;
+        }
+      }
+      // Prefer longer keyword matches (e.g., "check in" over "in")
+      // Also prefer entries with more total keywords matched.
+      if (score > bestScore) {
+        bestScore = score;
+        bestEntry = entry;
       }
     }
-    return "I’d be delighted to help, but I need a bit more detail. Could you please call reception at +254 700 123456 or email info@hotelitoya.co.ke, and we’ll assist you personally.";
+
+    if (bestEntry && bestScore > 0) {
+      return bestEntry.answer;
+    }
+
+    // Fallback with suggestions
+    const topics = ['rooms', 'conference', 'dining', 'parking', 'wedding', 'contact', 'location'];
+    const suggestion = topics.map(t => `"${t}"`).join(', ');
+    return `I’m not quite sure about that. Could you try asking about ${suggestion}, or call reception at +254 700 123456 and we’ll assist you personally.`;
   };
 
   const sendMessage = (e) => {

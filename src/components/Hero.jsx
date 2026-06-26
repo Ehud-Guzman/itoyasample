@@ -46,9 +46,8 @@ export default function Hero() {
     })
   }, [])
 
-  // Trigger text fade when slide changes
+  // Trigger cinematic text transition on slide change
   useEffect(() => {
-    // Skip the first run on mount so the text doesn't fade initially
     if (isFirstRun.current) {
       isFirstRun.current = false
       return
@@ -57,7 +56,7 @@ export default function Hero() {
     setIsTransitioning(true)
     const timer = setTimeout(() => {
       setIsTransitioning(false)
-    }, 1400) // Matches the image transition duration
+    }, 1400) // Matches image transition duration
 
     return () => clearTimeout(timer)
   }, [currentSlide])
@@ -108,23 +107,54 @@ export default function Hero() {
         <div className="absolute inset-0 bg-black/25 pointer-events-none" />
       </div>
 
-      {/* Main Content — text fades during slide transitions */}
+      {/* Main Content — Ultra-Premium Cinematic (Option 3) */}
       <div className="relative z-10 flex-1 flex flex-col max-w-7xl mx-auto px-6 lg:px-10 pt-40 pb-32 w-full">
         <div
           className={`
-            max-w-2xl transition-opacity duration-[1400ms] ease-in-out
-            ${isTransitioning ? 'opacity-30' : 'opacity-100'}
+            max-w-2xl 
+            transition-all duration-[1500ms] ease-[cubic-bezier(0.4,0,0.2,1)]
+            ${isTransitioning 
+              ? 'opacity-0 scale-[0.95] blur-[4px] -rotate-[1deg] translate-y-2' 
+              : 'opacity-100 scale-100 blur-0 rotate-0 translate-y-0'
+            }
           `}
         >
-          {/* Gold accent line above */}
-          <div className="w-16 h-[2px] bg-gold/80 mb-6" />
+          {/* Gold accent line — expands from centre */}
+          <div className="relative flex justify-center mb-6">
+            <div 
+              className={`
+                h-[2px] bg-gold/80 transition-all duration-[1400ms] ease-[cubic-bezier(0.4,0,0.2,1)]
+                ${isTransitioning ? 'w-0 opacity-0' : 'w-16 opacity-100'}
+              `} 
+            />
+          </div>
 
-          <h1 className="font-serif font-light text-white leading-[1.15] mb-3 text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl tracking-wide drop-shadow-lg">
-            Where Hospitality <br />
-            <span className="font-normal text-gold-light">Meets value</span>
+          <h1 className="font-serif font-light text-white leading-[1.15] mb-3 text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl tracking-wide drop-shadow-lg text-center">
+            <span 
+              className={`
+                block transition-all duration-[1200ms] ease-[cubic-bezier(0.4,0,0.2,1)] delay-100
+                ${isTransitioning ? 'opacity-0 -translate-y-6' : 'opacity-100 translate-y-0'}
+              `}
+            >
+              Where Hospitality
+            </span>
+            <span 
+              className={`
+                block font-normal text-gold-light transition-all duration-[1200ms] ease-[cubic-bezier(0.4,0,0.2,1)] delay-250
+                ${isTransitioning ? 'opacity-0 translate-y-6' : 'opacity-100 translate-y-0'}
+              `}
+            >
+              Meets value
+            </span>
           </h1>
 
-          <p className="text-white/90 text-[10px] sm:text-[11px] tracking-[0.35em] uppercase font-sans font-light mt-6">
+          <p 
+            className={`
+              text-white/90 text-[10px] sm:text-[11px] tracking-[0.35em] uppercase font-sans font-light mt-6 text-center
+              transition-all duration-[1000ms] ease-[cubic-bezier(0.4,0,0.2,1)] delay-400
+              ${isTransitioning ? 'opacity-0 -translate-y-3' : 'opacity-100 translate-y-0'}
+            `}
+          >
             Hotel Itoya · Busia, Kenya
           </p>
         </div>
