@@ -9,6 +9,7 @@ import Testimonials from './components/Testimonials'
 import ContactSection from './components/ContactSection'
 import Footer from './components/Footer'
 import ParkingSection from './components/ParkingSection'
+import ChatBot from './components/ChatBot';
 
 export default function App() {
   return (
@@ -24,6 +25,8 @@ export default function App() {
         <GallerySection />
         <Testimonials />
         <ContactSection />
+        <ChatBot />
+
       </main>
       <Footer />
     </>

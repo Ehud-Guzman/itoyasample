@@ -24,12 +24,10 @@ export default function Hero() {
     '/food1.webp',
     '/conference2.webp',
     '/layout1.jpeg',
-
   ]
 
   const [currentSlide, setCurrentSlide] = useState(0)
 
-  // Autoplay slideshow
   useEffect(() => {
     const id = setInterval(() => {
       setCurrentSlide((s) => (s + 1) % slides.length)
@@ -37,7 +35,6 @@ export default function Hero() {
     return () => clearInterval(id)
   }, [])
 
-  // Preload slides
   useEffect(() => {
     slides.forEach((src) => {
       const img = new Image()
@@ -60,10 +57,8 @@ export default function Hero() {
       if (currentScroll <= 220) {
         setTrustMode('full')
       } else if (isScrollingDown) {
-        // When scrolling down, hide the trust badge completely
         setTrustMode('hidden')
       } else {
-        // When scrolling up, show compact badge
         setTrustMode('compact')
       }
     }
@@ -76,7 +71,7 @@ export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex flex-col overflow-hidden">
 
-      {/* Background slideshow */}
+      {/* Background slideshow — unchanged */}
       <div className="absolute inset-0 z-0">
         {slides.map((src, i) => (
           <img
@@ -89,130 +84,111 @@ export default function Hero() {
             loading={currentSlide === i ? 'eager' : 'lazy'}
           />
         ))}
-
-        {/* Overlay */}
         <div className="absolute inset-0 bg-black/25 pointer-events-none" />
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 flex-1 flex flex-col justify-end max-w-7xl mx-auto px-6 lg:px-10 pb-36 pt-36 w-full">
-
-        {/* Hero Copy */}
+      {/* Main Content — refined headline with gold accent */}
+      <div className="relative z-10 flex-1 flex flex-col max-w-7xl mx-auto px-6 lg:px-10 pt-40 pb-32 w-full">
         <div className="max-w-2xl fade-in">
+          {/* Gold accent line above */}
+          <div className="w-16 h-[2px] bg-gold/80 mb-6" />
 
-          <h1 className="font-sans font-light text-white/95 leading-tight mb-8 text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl tracking-tight drop-shadow-lg">
-            Where hospitality meets value
+          <h1 className="font-serif font-light text-white leading-[1.15] mb-3 text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl tracking-wide drop-shadow-lg">
+            Where hospitality <br />
+            <span className="font-normal text-gold-light">meets value</span>
           </h1>
 
-          <p className="font-sans text-white/90 text-base md:text-lg leading-relaxed mb-10 max-w-xl">
-            A refined destination for accommodation, dining, conferences,
-            and memorable stays.
+          <p className="text-white/40 text-[10px] sm:text-[11px] tracking-[0.35em] uppercase font-sans font-light mt-6">
+            Hotel Itoya · Busia, Kenya
           </p>
-
-          {/* CTA */}
-          <div className="flex flex-wrap gap-4 mb-16">
-
-            <a
-              href="#contact"
-              className="btn-primary"
-            >
-              Book Your Stay
-            </a>
-
-            <a
-              href="#rooms"
-              className="btn-outline"
-            >
-              Explore Rooms
-            </a>
-
-          </div>
         </div>
-
-        {/* Quick Inquiry Bar */}
-        <div className="w-full rounded-lg overflow-hidden bg-white/95 backdrop-blur-md shadow-lg">
-
-          <div className="flex flex-col md:flex-row">
-
-            <div className="flex-1 px-6 py-5 border-b md:border-b-0 md:border-r">
-              <p className="text-xs tracking-widest uppercase text-forest mb-1">
-                Stay
-              </p>
-              <p className="text-sm text-ink">
-                Business & Leisure
-              </p>
-            </div>
-
-            <div className="flex-1 px-6 py-5 border-b md:border-b-0 md:border-r">
-              <p className="text-xs tracking-widest uppercase text-forest mb-1">
-                Conference
-              </p>
-              <p className="text-sm text-ink">
-                Meetings & Events
-              </p>
-            </div>
-
-            <div className="flex-1 px-6 py-5 border-b md:border-b-0 md:border-r">
-              <p className="text-xs tracking-widest uppercase text-forest mb-1">
-                Experience
-              </p>
-              <p className="text-sm text-ink">
-                Premium Hospitality
-              </p>
-            </div>
-
-            <button className="bg-gold hover:bg-gold-dark text-white px-10 py-5 uppercase tracking-widest text-xs transition">
-              Check Availability
-            </button>
-
-          </div>
-        </div>
-
       </div>
 
-      {/* Trust Strip (fixed to bottom as a centered panel, compact badge, or hidden) */}
-      <div className={`floating-panel fixed z-40 transition-all duration-300 hidden lg:block ${trustMode === 'compact' ? 'bottom-4 right-4 left-auto w-auto max-w-xs rounded-full bg-forest/95 border border-white/15 shadow-xl px-3 py-2 opacity-100' : trustMode === 'hidden' ? 'opacity-0 pointer-events-none' : 'left-1/2 w-[min(92vw,44rem)] max-w-5xl -translate-x-1/2 rounded-full bg-forest/85 border border-white/10 shadow-2xl ' + (footerNear ? 'bottom-20' : 'bottom-4')}`}>
-
-        <div className={trustMode === 'compact' ? 'flex items-center gap-2 text-left text-[11px]' : 'flex flex-wrap items-center justify-between gap-3 px-3 py-2 text-white/90'}>
-
+      {/* === SCROLLING PREMIUM TRUST STRIP === */}
+      <div
+        className={`
+          floating-panel fixed z-40 transition-all duration-500 ease-out
+          hidden md:block
+          ${trustMode === 'compact' 
+            ? 'bottom-6 right-6 left-auto w-auto max-w-xs opacity-100' 
+            : trustMode === 'hidden' 
+              ? 'opacity-0 pointer-events-none' 
+              : 'left-1/2 w-[min(92vw,56rem)] max-w-6xl -translate-x-1/2 opacity-100 ' + (footerNear ? 'bottom-20' : 'bottom-6')
+          }
+        `}
+      >
+        <div
+          className={`
+            relative overflow-hidden bg-forest/95 backdrop-blur-sm border border-white/15 shadow-2xl shadow-black/40
+            ${trustMode === 'compact' 
+              ? 'rounded-full px-5 py-2' 
+              : 'rounded-full px-2 py-3 sm:px-4'
+            }
+          `}
+        >
           {trustMode === 'compact' ? (
-            <>
-              <span className="inline-flex h-3.5 w-3.5 shrink-0 rounded-full bg-gold animate-pulse" />
-              <div>
-                <p className="uppercase tracking-[0.35em] text-gold/90">
-                  Trusted at a glance
-                </p>
-                <p className="text-white/85 text-xs leading-tight">
-                  Premium rooms · Dining · Meetings
-                </p>
-              </div>
-            </>
-          ) : trustMode === 'full' ? (
-            <div className="flex flex-wrap items-center justify-between gap-4 w-full">
-
-              {trustItems.map((item) => (
-                <div
-                  key={item.label}
-                  className="min-w-[9rem] flex-1 py-2 text-center border-white/10 last:border-0 md:border-r"
-                >
-                  <p className="font-serif text-base text-gold leading-none">
-                    {item.value}
-                  </p>
-
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-white/70 mt-1 leading-tight">
-                    {item.label}
-                  </p>
-                </div>
-              ))}
-
+            // --- COMPACT BADGE: static, refined, visible ---
+            <div className="flex items-center justify-center gap-3">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold/60" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-gold" />
+              </span>
+              <span className="font-serif text-sm tracking-[0.15em] text-gold whitespace-nowrap">
+                Hotel Itoya
+              </span>
             </div>
-          ) : null}
-
+          ) : (
+            // --- FULL STRIP: infinite scrolling marquee ---
+            <div className="flex overflow-hidden">
+              <div className="flex animate-scroll-trust gap-8 sm:gap-12 md:gap-16">
+                {/* First set */}
+                {trustItems.map((item) => (
+                  <div key={`${item.value}-1`} className="flex items-center gap-3 sm:gap-4">
+                    <div className="flex items-baseline gap-2 whitespace-nowrap">
+                      <span className="font-serif text-sm sm:text-base md:text-lg text-gold font-medium tracking-wide">
+                        {item.value}
+                      </span>
+                      <span className="text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.2em] text-cream/70">
+                        {item.label}
+                      </span>
+                    </div>
+                    <span className="w-px h-5 md:h-6 bg-white/10" />
+                  </div>
+                ))}
+                {/* Second set (duplicate for seamless looping) */}
+                {trustItems.map((item) => (
+                  <div key={`${item.value}-2`} className="flex items-center gap-3 sm:gap-4">
+                    <div className="flex items-baseline gap-2 whitespace-nowrap">
+                      <span className="font-serif text-sm sm:text-base md:text-lg text-gold font-medium tracking-wide">
+                        {item.value}
+                      </span>
+                      <span className="text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.2em] text-cream/70">
+                        {item.label}
+                      </span>
+                    </div>
+                    <span className="w-px h-5 md:h-6 bg-white/10" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
-
       </div>
 
-      {/* Mobile trust strip is removed completely */}
+      {/* CSS Animation for scrolling */}
+      <style>{`
+        @keyframes scrollTrust {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-scroll-trust {
+          animation: scrollTrust 22s linear infinite;
+        }
+        /* Optional: pause animation on hover for better readability */
+        .floating-panel:hover .animate-scroll-trust {
+          animation-play-state: paused;
+        }
+      `}</style>
 
     </section>
   )

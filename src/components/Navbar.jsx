@@ -83,6 +83,9 @@ export default function Navbar() {
               <a href="#corporate" className={utilityLinkStyle}>Corporate</a>
               <a href="#agent" className={utilityLinkStyle}>Agent</a>
               <a href="#careers" className={utilityLinkStyle}>Careers</a>
+              <button className="bg-gold hover:bg-gold/90 text-forest px-5 py-1.5 uppercase tracking-[0.1em] text-[10px] font-semibold transition">
+                Check Availability
+              </button>
             </div>
           </div>
         </div>
