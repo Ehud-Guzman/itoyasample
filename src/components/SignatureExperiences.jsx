@@ -74,8 +74,7 @@ export default function SignatureExperiences() {
           </h2>
 
           <p className="text-white/60 leading-relaxed">
-            Every detail is shaped around comfort,
-            hospitality, and meaningful experiences.
+           Where Hospitality meets Value
           </p>
 
         </div>

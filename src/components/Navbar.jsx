@@ -20,7 +20,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // --- Clean, solid link style with gold underline ---
   const linkStyle = `
     font-sans text-[11px] tracking-[0.22em] uppercase font-medium text-ink/80
     relative
@@ -37,11 +36,6 @@ export default function Navbar() {
     hover:text-forest hover:after:w-10
   `
 
-  const utilityLinkStyle = `
-    font-sans text-[10px] tracking-[0.3em] uppercase font-medium text-ink/50
-    hover:text-gold transition-colors duration-300
-  `
-
   return (
     <header
       className={`
@@ -52,44 +46,44 @@ export default function Navbar() {
         ${scrolled ? 'shadow-sm' : ''}
       `}
     >
-      {/* --- UTILITY BAR (Refined spacing) --- */}
+      {/* --- PARTNERSHIP BANNER — deep brown text with gold accents --- */}
       <div
         className={`
-          hidden lg:block border-b border-stone/50
-          transition-all duration-300
-          ${scrolled ? 'max-h-0 opacity-0 overflow-hidden' : 'max-h-12 opacity-100'}
+          hidden lg:block border-b border-stone/100
+          transition-all duration-300 overflow-hidden
+          ${scrolled ? 'max-h-0 opacity-0' : 'max-h-12 opacity-100'}
         `}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="h-12 flex items-center justify-between">
-            {/* Left: gold status dot + hotel name */}
-            <div className="flex items-center gap-4">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold/60" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-gold" />
+        <div className="h-12 bg-white flex items-center overflow-hidden">
+          <div className="relative w-full overflow-hidden">
+            <div className="flex whitespace-nowrap animate-marquee">
+              <span className="inline-block px-8 font-serif text-sm tracking-[0.2em] text-ink font-semibold">
+                <span className="text-gold mr-3">✦</span>
+                In partnership with Homeland Itoya
+                <span className="text-gold mx-3">◆</span>
+                Elevating events &amp; outside catering with distinction
+                <span className="text-gold ml-3">✦</span>
               </span>
-            
-              <span className="h-4 w-px bg-stone/200" />
-              <span className="text-[11px] text-ink/40">
-                Where hospitality meets value
+              <span className="inline-block px-8 font-serif text-sm tracking-[0.2em] text-ink font-semibold">
+                <span className="text-gold mr-3">✦</span>
+                In partnership with Homeland Itoya
+                <span className="text-gold mx-3">◆</span>
+                Elevating events &amp; outside catering with distinction
+                <span className="text-gold ml-3">✦</span>
               </span>
-            </div>
-
-            {/* Right: utility links with generous spacing */}
-            <div className="flex items-center gap-6">
-              <a href="#rewards" className={utilityLinkStyle}>Rewards</a>
-              <a href="#corporate" className={utilityLinkStyle}>Corporate</a>
-              <a href="#agent" className={utilityLinkStyle}>Agent</a>
-              <a href="#careers" className={utilityLinkStyle}>Careers</a>
-              <button className="bg-gold hover:bg-gold/90 text-forest px-5 py-1.5 uppercase tracking-[0.1em] text-[10px] font-semibold transition">
-                Check Availability
-              </button>
+              <span className="inline-block px-8 font-serif text-sm tracking-[0.2em] text-ink font-semibold">
+                <span className="text-gold mr-3">✦</span>
+                In partnership with Homeland Itoya
+                <span className="text-gold mx-3">◆</span>
+                Elevating events &amp; outside catering with distinction
+                <span className="text-gold ml-3">✦</span>
+              </span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* --- MAIN NAVIGATION (Three‑column layout) --- */}
+      {/* --- MAIN NAVIGATION (unchanged) --- */}
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div
           className={`
@@ -98,7 +92,6 @@ export default function Navbar() {
             ${scrolled ? 'h-16' : 'h-24'}
           `}
         >
-          {/* Left: Logo + location */}
           <a href="#home" className="flex items-center gap-4 shrink-0 group">
             <img
               src="/hotel Itoya logo.png"
@@ -115,7 +108,6 @@ export default function Navbar() {
             </div>
           </a>
 
-          {/* Center: Navigation (perfectly centered) */}
           <nav className="hidden lg:flex items-center gap-10">
             {navLinks.map((link) => (
               <a
@@ -128,9 +120,7 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Right: CTA + mobile controls */}
           <div className="flex items-center gap-6">
-            {/* Desktop CTA */}
             <a
               href="#contact"
               className="
@@ -146,7 +136,6 @@ export default function Navbar() {
               Book Now
             </a>
 
-            {/* Mobile: Book button + hamburger */}
             <a
               href="#contact"
               className="lg:hidden px-5 py-2 bg-gold text-white text-[10px] uppercase tracking-[0.18em]"
@@ -182,7 +171,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* --- MOBILE MENU (Clean, solid white) --- */}
+      {/* --- MOBILE MENU (unchanged) --- */}
       <div
         className={`
           lg:hidden overflow-hidden transition-all duration-300
@@ -219,6 +208,16 @@ export default function Navbar() {
           </a>
         </nav>
       </div>
+
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-33.333%); }
+        }
+        .animate-marquee {
+          animation: marquee 18s linear infinite;
+        }
+      `}</style>
     </header>
   )
 }

@@ -78,17 +78,17 @@ export default function ContactSection() {
                   </p>
 
                   <a
-                    href="tel:+254 765-50400"
+                    href="tel:+254 714 302 777"
                     className="block text-white hover:text-gold transition"
                   >
-                    +254 765-50400
+                    +254 714 302 777
                   </a>
 
                   <a
-                    href="tel:+254  765-50400"
+                    href="tel:+254  714 666 222"
                     className="block text-white/60 hover:text-gold transition"
                   >
-                    +254  765-50400
+                    +254  714 666 222
                   </a>
                 </div>
 
@@ -101,7 +101,7 @@ export default function ContactSection() {
                     href="mailto:reservations@hotelitoya.co.ke"
                     className="text-white hover:text-gold transition"
                   >
-                    reservations@hotelitoya.co.ke
+                    hotel.itoya@ayotigroup.com
                   </a>
                 </div>
 

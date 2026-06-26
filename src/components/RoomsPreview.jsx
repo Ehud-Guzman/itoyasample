@@ -2,8 +2,8 @@
 
 const rooms = [
   {
-    img: "/sitting1.jpeg",
-    tag: "Comfort",
+    img: "/starndarroom1.jpeg",
+    tag: "Standard",
     title: "Standard Room",
     description:
       "Designed for comfortable stays with thoughtful details and a calm atmosphere for rest, productivity, and ease.",
@@ -17,8 +17,8 @@ const rooms = [
   },
 
   {
-    img: "/beedroom1.webp",
-    tag: "Featured",
+    img: "/deluxroom1.jpeg",
+    tag: "Deluxe",
     title: "Deluxe Room",
 
     description:
@@ -35,8 +35,24 @@ const rooms = [
   },
 
   {
-    img: "/conference2.webp",
-    tag: "Premium",
+    img: "/superdelux1.jpeg",
+    tag: "Super Deluxe",
+    title: "Super Deluxe Room",
+
+    description:
+      "The ultimate stay with generous space, luxurious finishing touches, and elevated amenities for an unforgettable retreat.",
+
+    features: [
+      "Private Lounge",
+      "King Bed",
+      "Panoramic Views",
+      "Premium Amenities",
+    ],
+  },
+
+  {
+    img: "/executiveroom1.jpeg",
+    tag: "Executive",
     title: "Executive Room",
 
     description:

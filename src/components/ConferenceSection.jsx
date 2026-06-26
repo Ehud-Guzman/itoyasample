@@ -2,7 +2,7 @@
 
 const venues = [
   {
-    img: '/conference2.webp',
+    img: '/roundtableconference1.jpeg',
     capacity: 'Flexible Setup',
     title: 'Conference Hall',
     description:

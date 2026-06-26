@@ -24,8 +24,12 @@ export default function Hero() {
     '/parking1.jpeg',
     '/parking2.jpeg',
     '/food1.webp',
-    '/conference2.webp',
+    
     '/layout1.jpeg',
+    '/events1.jpeg',
+    '/events3.jpeg',
+    '/homeland1.jpeg',
+    '/homelandsetup.jpeg'
   ]
 
   const [currentSlide, setCurrentSlide] = useState(0)

@@ -10,6 +10,7 @@ import ContactSection from './components/ContactSection'
 import Footer from './components/Footer'
 import ParkingSection from './components/ParkingSection'
 import ChatBot from './components/ChatBot';
+import ReceptionSection from './components/ReceptionSection'
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
       <main>
         <Hero />
         <AboutSection />
+        <ReceptionSection />
         <ParkingSection />
         <SignatureExperiences />
         <RoomsPreview />

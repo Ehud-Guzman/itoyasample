@@ -12,13 +12,13 @@ const galleryImages = [
     span: 'row-span-1',
   },
   {
-    src: '/conference2.webp',
+    src: '/longtable1.jpeg',
     alt: 'Conference Space',
     span: 'row-span-1',
   },
   {
     src: '/sitting1.jpeg',
-    alt: 'Guest Rooms',
+    alt: 'Executive Rooms',
     span: 'md:col-span-2 row-span-1', // wide but shorter
   },
   {
