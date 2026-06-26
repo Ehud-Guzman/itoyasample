@@ -1,6 +1,14 @@
 import { useState, useRef, useEffect } from 'react';
 import { FaComments, FaTimes, FaPaperPlane } from 'react-icons/fa';
 
+// --- Helper: get time‑based greeting ---
+const getTimeGreeting = () => {
+  const hour = new Date().getHours();
+  if (hour < 12) return 'Good morning';
+  if (hour < 17) return 'Good afternoon';
+  return 'Good evening';
+};
+
 // --- Hotel Itoya FAQ knowledge base (researched & verified) ---
 const faq = [
   {
@@ -66,7 +74,7 @@ export default function ChatBot() {
   const [messages, setMessages] = useState([
     {
       role: 'bot',
-      content: 'Good afternoon. I am Itoya, your virtual concierge. How may I assist you today?',
+      content: `${getTimeGreeting()}, welcome to Hotel Itoya! How may I assist you today?`,
     },
   ]);
   const [input, setInput] = useState('');
