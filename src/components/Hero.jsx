@@ -18,7 +18,11 @@ export default function Hero() {
     '/lobby2.jpeg',
     '/lounge1.webp',
     '/lobby1.webp',
-    '/sitting1.jpeg'
+    '/sitting1.jpeg',
+    '/parking1.jpeg',
+    '/parking2.jpeg',
+    '/food1.webp',
+    '/conference2.webp'
 
   ]
 
@@ -28,7 +32,7 @@ export default function Hero() {
   useEffect(() => {
     const id = setInterval(() => {
       setCurrentSlide((s) => (s + 1) % slides.length)
-    }, 6000)
+    }, 3000)
     return () => clearInterval(id)
   }, [])
 
