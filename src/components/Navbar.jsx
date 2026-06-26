@@ -68,9 +68,7 @@ export default function Navbar() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold/60" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-gold" />
               </span>
-              <span className="font-serif text-xs tracking-[0.15em] text-gold-dark">
-                Hotel Itoya
-              </span>
+            
               <span className="h-4 w-px bg-stone/200" />
               <span className="text-[11px] text-ink/40">
                 Where hospitality meets value
