@@ -48,7 +48,7 @@ function StarRating() {
 
 export default function Testimonials() {
   return (
-    <section className="bg-forest py-16 lg:py-24">
+    <section className="bg-[#a4733c] py-16 lg:py-24">
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
@@ -56,19 +56,19 @@ export default function Testimonials() {
 
         <div className="text-center max-w-2xl mx-auto mb-12">
 
-          <p className="section-label text-gold mb-3">
+          <p className="section-label text-white/80 mb-3">
             Guest Experience
           </p>
 
           <div className="gold-divider mx-auto mb-6" />
 
-          <h2 className="section-heading-light text-4xl md:text-5xl mb-5">
+          <h2 className="section-heading-light text-4xl md:text-5xl mb-5 text-white">
             Designed Around
             <br />
-            <em>Every Stay</em>
+            <em className="text-gold-light not-italic">Every Stay</em>
           </h2>
 
-          <p className="text-white/75 leading-relaxed text-sm md:text-base">
+          <p className="text-white/70 leading-relaxed text-sm md:text-base">
             Hospitality experiences crafted to create comfort,
             trust, and memorable moments.
           </p>
@@ -92,7 +92,7 @@ export default function Testimonials() {
                 hover:-translate-y-1
                 ${
                   t.featured
-                    ? 'bg-white/10 border-gold/40'
+                    ? 'bg-white/15 border-gold/40'
                     : 'bg-white/5 border-white/10'
                 }
               `}

@@ -55,7 +55,7 @@ const experiences = [
 
 export default function SignatureExperiences() {
   return (
-    <section className="bg-forest py-20">
+    <section className="bg-[#a4733c] py-20">
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
@@ -63,14 +63,16 @@ export default function SignatureExperiences() {
 
         <div className="text-center max-w-2xl mx-auto mb-12">
 
-          <p className="section-label text-gold mb-4">
+          {/* Changed to white for clarity */}
+          <p className="section-label text-white/80 mb-4">
             Experience Itoya
           </p>
 
           <div className="gold-divider mx-auto mb-8" />
 
-          <h2 className="section-heading-light mb-4 text-2xl md:text-3xl">
-            Signature <em>Experiences</em>
+          {/* Heading remains white */}
+          <h2 className="section-heading-light mb-4 text-2xl md:text-3xl text-white">
+            Signature <em className="text-gold-light not-italic">Experiences</em>
           </h2>
 
           <p className="text-white/60 leading-relaxed">
@@ -87,14 +89,16 @@ export default function SignatureExperiences() {
 
             <div
               key={exp.title}
-              className="group bg-forest p-6 hover:bg-[#1B4638] transition duration-300"
+              className="group bg-[#a4733c] p-6 hover:bg-[#8c5f2e] transition duration-300"
             >
 
-                <div className="text-gold mb-5 group-hover:translate-x-1 transition-transform">
-                  {exp.icon}
-                </div>
+              {/* Icon remains gold */}
+              <div className="text-gold mb-5 group-hover:translate-x-1 transition-transform">
+                {exp.icon}
+              </div>
 
-              <p className="section-label text-gold/60 mb-3">
+              {/* Label — changed to white/70 for better readability */}
+              <p className="section-label text-white/70 mb-3">
                 {exp.label}
               </p>
 
@@ -102,10 +106,11 @@ export default function SignatureExperiences() {
                 {exp.title}
               </h3>
 
-              <p className="text-white/55 text-sm leading-relaxed mb-6">
+              <p className="text-white/60 text-sm leading-relaxed mb-6">
                 {exp.description}
               </p>
 
+              {/* Underline remains gold */}
               <div className="w-10 h-px bg-gold/50 group-hover:w-16 transition-all" />
 
             </div>

@@ -10,7 +10,7 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="bg-forest">
+    <footer className="bg-[#a4733c]">
       {/* Newsletter strip */}
       <div className="border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-10">
@@ -27,7 +27,7 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder="your@email.com"
-                className="flex-1 bg-white/5 border border-white/10 text-white font-sans text-sm px-4 py-3 focus:outline-none focus:border-gold placeholder:text-white/50 min-w-0"
+                className="flex-1 bg-white/10 border border-white/15 text-white font-sans text-sm px-4 py-3 focus:outline-none focus:border-gold placeholder:text-white/50 min-w-0"
               />
               <button className="bg-gold text-white font-sans font-medium tracking-widest uppercase text-xs px-6 py-3 hover:bg-gold-dark transition-colors duration-200 flex-shrink-0">
                 Subscribe
@@ -42,15 +42,50 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
           {/* Brand col */}
           <div className="lg:col-span-2">
-            <div className="mb-6">
+            {/* Hotel Itoya branding */}
+            <div className="mb-4">
               <p className="font-serif font-medium text-xl text-white tracking-wide">HOTEL ITOYA</p>
-              <p className="font-sans font-light text-xs tracking-widest uppercase text-gold mt-0.5">Busia, Kenya</p>
+              <p className="font-sans font-light text-xs tracking-widest uppercase text-gold-light mt-0.5">Busia, Kenya</p>
             </div>
-            <p className="font-sans font-light text-white/70 text-sm leading-relaxed mb-6 max-w-xs">
-             Where Hospitality Meets Value.
+            <p className="font-sans font-light text-white/80 text-sm leading-relaxed mb-6 max-w-xs">
+              Where Hospitality Meets Value.
             </p>
 
-            {/* Social links — placeholders */}
+            {/* --- Separator + Homeland Itoya partnership (distinct section) --- */}
+            <div className="mb-6">
+              {/* Gold divider */}
+              <div className="w-12 h-px bg-gold/50 mb-4" />
+
+              <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-gold-light/70 mb-3">
+                In Partnership With
+              </p>
+
+              {/* Logo with white badge — now a clickable link */}
+              <a
+                href="https://homelandevents.co.ke/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 group"
+              >
+                <div className="bg-white/95 rounded-full p-1.5 border border-white/30 shadow-md flex-shrink-0 transition-transform duration-200 group-hover:scale-105">
+                  <img
+                    src="/homelandlogo.png"
+                    alt="Homeland Itoya"
+                    className="h-10 w-auto object-contain"
+                  />
+                </div>
+                <div>
+                  <p className="text-white text-sm font-serif transition-colors duration-200 group-hover:text-gold-light">
+                    Homeland Itoya
+                  </p>
+                  <p className="text-white/50 text-[10px] uppercase tracking-[0.15em]">
+                    Events &amp; Catering
+                  </p>
+                </div>
+              </a>
+            </div>
+
+            {/* Social links */}
             <div className="flex gap-3">
               {[
                 { label: 'Facebook', path: 'M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z' },
@@ -74,13 +109,13 @@ export default function Footer() {
           {/* Link columns */}
           {Object.entries(footerLinks).map(([heading, links]) => (
             <div key={heading}>
-              <p className="font-sans text-xs tracking-widest uppercase text-gold/70 mb-5">{heading}</p>
+              <p className="font-sans text-xs tracking-widest uppercase text-gold-light mb-5">{heading}</p>
               <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link}>
                     <a
                       href="#"
-                      className="font-sans font-light text-sm text-white/70 hover:text-white transition-colors duration-150"
+                      className="font-sans font-light text-sm text-white/80 hover:text-white transition-colors duration-150"
                     >
                       {link}
                     </a>
@@ -96,24 +131,20 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-5">
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-center">
-            <p className="font-sans text-xs text-white/50">
+            <p className="font-sans text-xs text-white/60">
               © {year} Hotel Itoya. All rights reserved. Busia, Kenya.
             </p>
             <span className="hidden sm:inline text-white/20">|</span>
-            <span className="font-sans text-xs text-white/40">
+            <span className="font-sans text-xs text-white/50">
               Created &amp; managed by{' '}
               <a
                 href="https://glimmerink.co.ke/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gold/70 hover:text-gold transition-colors duration-200"
+                className="text-gold-light hover:text-gold transition-colors duration-200"
               >
                 Glimmerink Creations
               </a>
-            </span>
-            <span className="hidden sm:inline text-white/20">|</span>
-            <span className="font-sans text-xs text-gold/50 border border-gold/20 px-3 py-1 tracking-widest uppercase">
-              Concept Demo
             </span>
           </div>
         </div>

@@ -42,7 +42,7 @@ export default function ContactSection() {
 
         {/* HEADER */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <p className="section-label mb-4">
+          <p className="section-label text-gold-light mb-4">
             Reservations & Enquiries
           </p>
 
@@ -50,7 +50,7 @@ export default function ContactSection() {
 
           <h2 className="section-heading mb-6">
             Reserve Your Stay<br />
-            <em>Or Plan Something Bigger</em>
+            <em className="text-gold-light not-italic">Or Plan Something Bigger</em>
           </h2>
 
           <p className="font-sans text-ink/60 leading-relaxed">
@@ -62,8 +62,8 @@ export default function ContactSection() {
         {/* MAIN GRID */}
         <div className="overflow-hidden rounded-sm border border-stone shadow-sm grid grid-cols-1 lg:grid-cols-5">
 
-          {/* LEFT */}
-          <div className="lg:col-span-2 bg-forest p-10 lg:p-14 flex flex-col">
+          {/* LEFT — using new primary color */}
+          <div className="lg:col-span-2 bg-[#a4733c] p-10 lg:p-14 flex flex-col">
 
             <div>
               <p className="font-serif text-2xl text-white mb-10">
@@ -73,40 +73,40 @@ export default function ContactSection() {
               <div className="space-y-8">
 
                 <div>
-                  <p className="text-gold text-xs tracking-widest uppercase mb-2">
+                  <p className="text-gold-light text-xs tracking-widest uppercase mb-2">
                     Reservations
                   </p>
 
                   <a
                     href="tel:+254 714 302 777"
-                    className="block text-white hover:text-gold transition"
+                    className="block text-white hover:text-gold-light transition"
                   >
                     +254 714 302 777
                   </a>
 
                   <a
                     href="tel:+254  714 666 222"
-                    className="block text-white/60 hover:text-gold transition"
+                    className="block text-white/70 hover:text-gold-light transition"
                   >
                     +254  714 666 222
                   </a>
                 </div>
 
                 <div>
-                  <p className="text-gold text-xs tracking-widest uppercase mb-2">
+                  <p className="text-gold-light text-xs tracking-widest uppercase mb-2">
                     Email
                   </p>
 
                   <a
-                    href="mailto:reservations@hotelitoya.co.ke"
-                    className="text-white hover:text-gold transition"
+                    href="mailto:hotel.itoya@ayotigroup.com"
+                    className="text-white hover:text-gold-light transition"
                   >
                     hotel.itoya@ayotigroup.com
                   </a>
                 </div>
 
                 <div>
-                  <p className="text-gold text-xs tracking-widest uppercase mb-2">
+                  <p className="text-gold-light text-xs tracking-widest uppercase mb-2">
                     Location
                   </p>
 
@@ -115,7 +115,7 @@ export default function ContactSection() {
                     Busia, Kenya
                   </p>
 
-                  <p className="text-white/40 mt-2 text-sm">
+                  <p className="text-white/50 mt-2 text-sm">
                     Minutes from Busia Border Crossing
                   </p>
                 </div>
@@ -126,7 +126,7 @@ export default function ContactSection() {
             <div className="mt-14">
 
               <a
-                href="https://wa.me/254700000000"
+                href="https://wa.me/254714302777"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full bg-[#25D366] hover:bg-[#1fb559]
@@ -136,18 +136,18 @@ export default function ContactSection() {
                 WhatsApp Enquiry
               </a>
 
-              <div className="mt-8 pt-8 border-t border-white/10">
+              <div className="mt-8 pt-8 border-t border-white/15">
 
-                <p className="text-gold/60 text-xs uppercase tracking-widest mb-3">
+                <p className="text-gold-light/80 text-xs uppercase tracking-widest mb-3">
                   Availability
                 </p>
 
-                <p className="text-white/60 text-sm leading-relaxed">
+                <p className="text-white/70 text-sm leading-relaxed">
                   Reservations Team<br />
                   Daily · 7:00 AM – 10:00 PM
                 </p>
 
-                <p className="text-gold mt-3 text-sm">
+                <p className="text-gold-light mt-3 text-sm">
                   Front Desk · 24 Hours
                 </p>
 
@@ -255,8 +255,6 @@ export default function ContactSection() {
             </form>
           </div>
         </div>
-
-    
 
       </div>
     </section>

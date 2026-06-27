@@ -163,7 +163,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* === SCROLLING PREMIUM TRUST STRIP === */}
+      {/* === RED TRUST STRIP — all text now white for contrast === */}
       <div
         className={`
           floating-panel fixed z-40 transition-all duration-500 ease-out
@@ -178,54 +178,54 @@ export default function Hero() {
       >
         <div
           className={`
-            relative overflow-hidden bg-forest/95 backdrop-blur-sm border border-white/15 shadow-2xl shadow-black/40
+            relative overflow-hidden border border-white/15 shadow-2xl shadow-black/40
             ${trustMode === 'compact' 
-              ? 'rounded-full px-5 py-2' 
-              : 'rounded-full px-2 py-3 sm:px-4'
+              ? 'rounded-full px-5 py-2 bg-[#ff020a]' 
+              : 'rounded-full px-2 py-3 sm:px-4 bg-[#ff020a]/95 backdrop-blur-sm'
             }
           `}
         >
           {trustMode === 'compact' ? (
-            // --- COMPACT BADGE: static, refined, visible ---
+            // --- COMPACT BADGE: red background with white text ---
             <div className="flex items-center justify-center gap-3">
               <span className="relative flex h-2.5 w-2.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold/60" />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-gold" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white/60" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-white" />
               </span>
-              <span className="font-serif text-sm tracking-[0.15em] text-gold whitespace-nowrap">
+              <span className="font-serif text-sm tracking-[0.15em] text-white whitespace-nowrap">
                 Hotel Itoya
               </span>
             </div>
           ) : (
-            // --- FULL STRIP: infinite scrolling marquee ---
+            // --- FULL STRIP: infinite scrolling marquee with white text ---
             <div className="flex overflow-hidden">
               <div className="flex animate-scroll-trust gap-8 sm:gap-12 md:gap-16">
                 {/* First set */}
                 {trustItems.map((item) => (
                   <div key={`${item.value}-1`} className="flex items-center gap-3 sm:gap-4">
                     <div className="flex items-baseline gap-2 whitespace-nowrap">
-                      <span className="font-serif text-sm sm:text-base md:text-lg text-gold font-medium tracking-wide">
+                      <span className="font-serif text-sm sm:text-base md:text-lg text-white font-medium tracking-wide">
                         {item.value}
                       </span>
-                      <span className="text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.2em] text-cream/70">
+                      <span className="text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.2em] text-white/70">
                         {item.label}
                       </span>
                     </div>
-                    <span className="w-px h-5 md:h-6 bg-white/10" />
+                    <span className="w-px h-5 md:h-6 bg-white/20" />
                   </div>
                 ))}
                 {/* Second set (duplicate for seamless looping) */}
                 {trustItems.map((item) => (
                   <div key={`${item.value}-2`} className="flex items-center gap-3 sm:gap-4">
                     <div className="flex items-baseline gap-2 whitespace-nowrap">
-                      <span className="font-serif text-sm sm:text-base md:text-lg text-gold font-medium tracking-wide">
+                      <span className="font-serif text-sm sm:text-base md:text-lg text-white font-medium tracking-wide">
                         {item.value}
                       </span>
-                      <span className="text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.2em] text-cream/70">
+                      <span className="text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.2em] text-white/70">
                         {item.label}
                       </span>
                     </div>
-                    <span className="w-px h-5 md:h-6 bg-white/10" />
+                    <span className="w-px h-5 md:h-6 bg-white/20" />
                   </div>
                 ))}
               </div>

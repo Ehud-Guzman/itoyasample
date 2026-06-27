@@ -58,47 +58,48 @@ export default function ConferenceSection() {
     <section id="conference" className="bg-gradient-to-b from-cream to-white py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
-{/* Section header — editorial, strong */}
-<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end mb-16">
+        {/* Section header — editorial, strong */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end mb-16">
 
-  <div>
-    <p className="section-label mb-4">
-      Meetings & Events
-    </p>
+          <div>
+            <p className="section-label mb-4">
+              Meetings & Events
+            </p>
 
-    <div className="gold-divider mb-8" />
+            <div className="gold-divider mb-8" />
 
-    <h2 className="section-heading">
-      Designed For Meetings
-      <br />
-      <em>That Matter</em>
-    </h2>
-  </div>
+            <h2 className="section-heading">
+              Designed For Meetings
+              <br />
+              <em>That Matter</em>
+            </h2>
+          </div>
 
-  <div className="lg:text-right">
+          <div className="lg:text-right">
 
-    <p className="font-sans font-light text-ink/60 leading-relaxed mb-6 max-w-md ml-auto">
-      Flexible spaces created for meetings, conferences, and memorable occasions —
-      delivered with comfort, professionalism, and attention to detail.
-    </p>
+            <p className="font-sans font-light text-ink/60 leading-relaxed mb-6 max-w-md ml-auto">
+              Flexible spaces created for meetings, conferences, and memorable occasions —
+              delivered with comfort, professionalism, and attention to detail.
+            </p>
 
-    <a
-      href="#contact"
-      className="btn-outline-dark"
-    >
-      Plan Your Event
-    </a>
+            <a
+              href="#contact"
+              className="inline-block border border-[#a4733c] text-[#a4733c] hover:bg-[#a4733c] hover:text-white font-sans font-medium tracking-widest uppercase text-xs px-8 py-3.5 transition-colors duration-200"
+            >
+              Plan Your Event
+            </a>
 
-  </div>
+          </div>
 
-</div>
-        {/* Stats bar */}
-        <div className="bg-forest mb-12">
+        </div>
+
+        {/* Stats bar — now using brown */}
+        <div className="bg-[#a4733c] mb-12">
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
             {highlights.map((h) => (
               <div key={h.label} className="px-8 py-6 text-center">
-                <p className="font-serif text-2xl md:text-3xl text-gold font-medium">{h.value}</p>
-                <p className="font-sans text-xs text-white/50 tracking-wide mt-1">{h.label}</p>
+                <p className="font-serif text-2xl md:text-3xl text-gold-light font-medium">{h.value}</p>
+                <p className="font-sans text-xs text-white/60 tracking-wide mt-1">{h.label}</p>
               </div>
             ))}
           </div>
@@ -119,7 +120,7 @@ export default function ConferenceSection() {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-forest/30 group-hover:bg-forest/40 transition-colors duration-200" />
+                <div className="absolute inset-0 bg-[#a4733c]/30 group-hover:bg-[#a4733c]/40 transition-colors duration-200" />
 
                 {/* Capacity badge */}
                 <div className="absolute top-4 right-4 bg-gold text-white font-sans text-xs tracking-widest uppercase px-3 py-1">
@@ -146,7 +147,7 @@ export default function ConferenceSection() {
 
                 <a
                   href="#contact"
-                  className="font-sans font-medium tracking-widest uppercase text-xs border border-forest text-forest py-3 px-6 inline-block hover:bg-forest hover:text-white transition-colors duration-200"
+                  className="font-sans font-medium tracking-widest uppercase text-xs border border-[#a4733c] text-[#a4733c] py-3 px-6 inline-block hover:bg-[#a4733c] hover:text-white transition-colors duration-200"
                 >
                   Enquire Now
                 </a>
@@ -155,18 +156,18 @@ export default function ConferenceSection() {
           ))}
         </div>
 
-        {/* Bottom CTA strip */}
-        <div className="mt-12 bg-forest p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+        {/* Bottom CTA strip — now using brown */}
+        <div className="mt-12 bg-[#a4733c] p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <p className="font-serif text-xl md:text-2xl text-white font-medium mb-2">
               Planning a Corporate Event?
             </p>
-            <p className="font-sans font-light text-white/60 text-sm">
+            <p className="font-sans font-light text-white/70 text-sm">
               Our events team will handle every detail. Tell us about your requirements.
             </p>
           </div>
           <div className="flex gap-4 flex-shrink-0">
-            <a href="#contact" className="btn-primary">
+            <a href="#contact" className="bg-gold text-white font-sans font-medium tracking-widest uppercase text-xs px-8 py-4 hover:bg-gold-dark transition-colors duration-200">
               Plan Your Event
             </a>
             <a
@@ -182,6 +183,7 @@ export default function ConferenceSection() {
             </a>
           </div>
         </div>
+
       </div>
     </section>
   )
