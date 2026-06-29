@@ -78,7 +78,7 @@ export default function Hero() {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 flex-1 flex flex-col max-w-7xl mx-auto px-6 lg:px-10 pt-40 pb-32 w-full">
+      <div className="relative z-10 flex-1 flex flex-col max-w-7xl mx-auto px-6 lg:px-10 pt-40 pb-16 w-full">
         <div
           className={`
             max-w-2xl
@@ -130,10 +130,10 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* TRUST STRIP — full-width rectangle, bottom of hero, fades on scroll */}
+      {/* TRUST STRIP — bottom of hero flex column, fades on scroll */}
       <div
         className={`
-          absolute bottom-0 inset-x-0 z-20
+          relative z-20 w-full
           transition-all duration-500
           ${stripVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'}
         `}
