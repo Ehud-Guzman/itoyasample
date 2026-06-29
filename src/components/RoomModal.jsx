@@ -1,6 +1,14 @@
 import { useEffect, useState } from 'react'
 
+const PRICE_MAP = {
+  'Standard':    3500,
+  'Deluxe':      6000,
+  'Super Deluxe':7000,
+  'Executive':   10000,
+}
+
 export default function RoomModal({ room, onClose, onBookRoom }) {
+  const price = room.pricePerNight || PRICE_MAP[room.tag] || null
   const [activeImg, setActiveImg] = useState(0)
 
   useEffect(() => {
@@ -77,13 +85,15 @@ export default function RoomModal({ room, onClose, onBookRoom }) {
               <h2 className="font-serif text-3xl lg:text-4xl text-ink leading-tight">{room.title}</h2>
               <div className="w-10 h-px bg-gold mt-4 mb-3" />
 
-              {/* Price — shown when available in Sanity */}
-              {room.pricePerNight && (
+              {price && (
                 <div className="flex items-baseline gap-2 mb-4">
                   <p className="font-serif text-2xl text-primary">
-                    KES {room.pricePerNight.toLocaleString()}
+                    KES {price.toLocaleString()}
                   </p>
                   <p className="font-sans text-xs text-ink/40">per night</p>
+                  {room.tag === 'Standard' && (
+                    <p className="font-sans text-[10px] text-gold/70">· Bed & Breakfast</p>
+                  )}
                 </div>
               )}
 
