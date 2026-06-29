@@ -1,7 +1,7 @@
-const express = require('express')
-const multer  = require('multer')
-const axios   = require('axios')
-const { Resend } = require('resend')
+const express    = require('express')
+const multer     = require('multer')
+const axios      = require('axios')
+const nodemailer = require('nodemailer')
 
 const router  = express.Router()
 const upload  = multer({
@@ -65,10 +65,23 @@ async function initiateSTKPush({ phone, amount, ref }) {
   return res.data.CheckoutRequestID
 }
 
+// ── Nodemailer transporter ────────────────────────────────────────────────────
+function createTransporter() {
+  return nodemailer.createTransport({
+    host:   process.env.EMAIL_HOST || 'smtp.gmail.com',
+    port:   Number(process.env.EMAIL_PORT) || 587,
+    secure: false,
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+    },
+  })
+}
+
 // ── Email helper ──────────────────────────────────────────────────────────────
 async function sendEmails(booking) {
-  const resend      = new Resend(process.env.RESEND_API_KEY)
-  const from        = process.env.EMAIL_FROM
+  const transporter = createTransporter()
+  const from        = `"Hotel Itoya Bookings" <${process.env.EMAIL_USER}>`
   const hotelEmail  = process.env.HOTEL_EMAIL
   const { b, idFrontBuffer, idBackBuffer, idFrontName, idBackName } = booking
 
@@ -90,7 +103,7 @@ async function sendEmails(booking) {
   `
 
   // ── Hotel notification (with ID attachments) ──
-  await resend.emails.send({
+  await transporter.sendMail({
     from,
     to:      hotelEmail,
     subject: `New Booking ${b.ref} — ${b.name} (${b.checkIn} → ${b.checkOut})`,
@@ -112,7 +125,7 @@ async function sendEmails(booking) {
   })
 
   // ── Guest confirmation ──
-  await resend.emails.send({
+  await transporter.sendMail({
     from,
     to:      b.email,
     subject: `Your Booking at Hotel Itoya — ${b.ref}`,

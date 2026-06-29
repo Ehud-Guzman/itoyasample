@@ -6,10 +6,10 @@ import {
 
 // ─── Room catalogue ─────────────────────────────────────────────────────────
 const ROOMS = [
-  { id: 'standard',     label: 'Standard Room',     price: 3500,  confirmed: true  },
-  { id: 'deluxe',       label: 'Deluxe Room',        price: 5500,  confirmed: false },
-  { id: 'super-deluxe', label: 'Super Deluxe Room',  price: 8500,  confirmed: false },
-  { id: 'executive',    label: 'Executive Room',     price: 12000, confirmed: false },
+  { id: 'standard',     label: 'Standard Room',     price: 3500,  note: 'Bed & Breakfast included' },
+  { id: 'deluxe',       label: 'Deluxe Room',        price: 6000,  note: '' },
+  { id: 'super-deluxe', label: 'Super Deluxe Room',  price: 7000,  note: '' },
+  { id: 'executive',    label: 'Executive Room',     price: 10000, note: '' },
 ]
 
 const STEPS = ['Room & Dates', 'Your Details', 'Upload ID', 'Review', 'Payment', 'Confirmed']
@@ -376,8 +376,8 @@ function StepRoomDates({ data, set, errors, clearErr, today, minCheckout, room, 
             >
               <div className="flex flex-col">
                 <span className="text-sm font-medium text-ink">{r.label}</span>
-                {!r.confirmed && (
-                  <span className="text-[10px] text-ink/40 mt-0.5">Rate subject to confirmation</span>
+                {r.note && (
+                  <span className="text-[10px] text-gold/70 mt-0.5">{r.note}</span>
                 )}
               </div>
               <div className="flex items-center gap-3 shrink-0 ml-4">
@@ -443,8 +443,8 @@ function StepRoomDates({ data, set, errors, clearErr, today, minCheckout, room, 
             <span className="font-serif text-ink">Estimated Total</span>
             <span className="font-serif text-gold text-lg">{kes(total)}</span>
           </div>
-          {!room.confirmed && (
-            <p className="text-[10px] text-ink/40 mt-1.5">* Final rate confirmed by hotel</p>
+          {room.note && (
+            <p className="text-[10px] text-gold/60 mt-1.5">✦ {room.note}</p>
           )}
         </div>
       )}
