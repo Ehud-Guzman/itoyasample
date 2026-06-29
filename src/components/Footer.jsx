@@ -11,32 +11,6 @@ export default function Footer() {
 
   return (
     <footer className="bg-primary">
-      {/* Newsletter strip */}
-      <div className="border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-10">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <p className="font-serif text-lg text-white font-medium mb-1">
-                Stay Informed
-              </p>
-              <p className="font-sans text-xs text-white/70 tracking-wide">
-                Exclusive offers, event news, and seasonal packages — direct to your inbox.
-              </p>
-            </div>
-            <div className="flex w-full md:w-auto max-w-sm">
-              <input
-                type="email"
-                placeholder="your@email.com"
-                className="flex-1 bg-white/15 border border-white/30 text-white font-sans text-sm px-4 py-3 focus:outline-none focus:border-gold placeholder:text-white/60 min-w-0"
-              />
-              <button className="bg-gold text-white font-sans font-medium tracking-widest uppercase text-xs px-6 py-3 hover:bg-gold-dark transition-colors duration-200 flex-shrink-0">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Main footer */}
       <div className="max-w-7xl mx-auto px-6 lg:px-10 py-14">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
