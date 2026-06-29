@@ -46,7 +46,7 @@ export default function GallerySection() {
   const { data: sanityRaw } = useSanity(GALLERY_QUERY, [])
 
   const sanityImages = (sanityRaw || []).map((img) => ({
-    src: imgUrl(img.src, 900, 600),
+    src: img.src,   // raw CDN URL — sizing applied at render time
     alt: img.alt,
     cat: img.category,
   }))
@@ -144,7 +144,7 @@ export default function GallerySection() {
               className="relative overflow-hidden rounded-sm bg-stone group text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
             >
               <img
-                src={img.src}
+                src={imgUrl(img.src, 900, 600)}
                 alt={img.alt}
                 loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
