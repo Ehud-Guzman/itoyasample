@@ -54,7 +54,7 @@ export default function LocationSection() {
           <div className="lg:col-span-3 overflow-hidden rounded-sm border border-stone shadow-lg shadow-black/5 aspect-[16/10]">
             <iframe
               title="Hotel Itoya Location"
-              src="https://maps.google.com/maps?q=0.4612,34.1117&t=&z=17&ie=UTF8&iwloc=&output=embed"
+              src="https://maps.google.com/maps?q=Hotel+Itoya,+B1+Kisumu+-+Busia+Rd,+Busia&t=&z=17&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0, display: 'block' }}
@@ -110,7 +110,7 @@ export default function LocationSection() {
 
             {/* CTA */}
             <a
-              href="https://maps.google.com/?q=0.4612,34.1117"
+              href="https://maps.app.goo.gl/LyepPpHtyGDB7gAU8"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 border border-primary text-primary hover:bg-primary hover:text-white font-sans font-medium tracking-widest uppercase text-xs px-6 py-3.5 transition-colors duration-200 w-fit"
