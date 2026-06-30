@@ -15,10 +15,10 @@ const getGreeting = () => {
 
 // ── Social word lists (exact-match checked before FAQ scoring) ──────────────
 const GREETINGS   = ['hi','hello','hey','hiya','howdy','sup','good morning','good afternoon','good evening','good night','greetings','salut','habari','mambo','niaje','sasa','karibu'];
-const FAREWELLS   = ['bye','goodbye','good bye','see you','cya','take care','farewell','later','talk later','see ya','ttyl','kwaheri'];
-const THANKS      = ['thank you','thanks','thank u','thankyou','thx','cheers','appreciated','asante','thank you so much','thanks a lot','thanks so much','many thanks'];
-const AFFIRMATIONS= ['ok','okay','alright','got it','understood','noted','sure','great','perfect','nice','cool','awesome','wonderful','ok thanks','okay thanks','sounds good','makes sense','that helps'];
-const NEGATIONS   = ['no','nope','nah','not really','nothing else',"that's all",'all good','im good',"i'm good",'no thanks','no thank you','nothing','never mind','nevermind'];
+const FAREWELLS   = ['bye','goodbye','good bye','see you','cya','take care','farewell','later','talk later','see ya','ttyl','kwaheri','bye bye','good night'];
+const THANKS      = ['thank you','thanks','thank u','thankyou','thx','cheers','appreciated','asante','thank you so much','thanks a lot','thanks so much','many thanks','ok thanks','okay thanks','ok thank you','okay thank you','alright thanks','sure thanks','cool thanks','great thanks','noted thanks','got it thanks','perfect thanks','awesome thanks','nice thanks'];
+const AFFIRMATIONS= ['ok','okay','alright','got it','understood','noted','sure','great','perfect','nice','cool','awesome','wonderful','sounds good','makes sense','that helps','that is helpful','very helpful'];
+const NEGATIONS   = ['no','nope','nah','not really','nothing else',"that's all",'all good','im good',"i'm good",'no thanks','no thank you','nothing','never mind','nevermind','not now'];
 
 const FAQ = [
   // ── Check-in / Check-out ────────────────────────────────────────────────
@@ -389,8 +389,10 @@ const GREETING_REPLIES = [
   `${getGreeting()}! Happy to help. Ask me anything about Hotel Itoya — rooms, dining, events, location, and more.`,
 ];
 
-const exact = (list, lower) =>
-  list.some(w => lower === w || lower === w + '!' || lower === w + '.' || lower === w + '?');
+const exact = (list, lower) => {
+  const clean = lower.replace(/[,!?.]+/g, ' ').replace(/\s+/g, ' ').trim();
+  return list.some(w => clean === w || lower === w);
+};
 
 // Weighted scoring: longer keyword phrases are more specific and score higher
 const findAnswer = (question) => {
