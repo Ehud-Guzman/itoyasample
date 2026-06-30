@@ -1,11 +1,19 @@
 /* Footer — minimal premium footer */
 
 const footerLinks = {
-  Hotel: ['About Us', 'Rooms & Suites', 'Dining', 'Gallery', 'Contact'],
-  Services: ['Conference Facilities', 'Events Planning', 'Mobile Kitchen'],
+  Hotel: [
+    { label: 'About Us',      href: '#about' },
+    { label: 'Rooms & Suites', href: '#rooms' },
+    { label: 'Dining',        href: '#dining' },
+    { label: 'Gallery',       href: '#gallery' },
+    { label: 'Contact',       href: '#contact' },
+  ],
+  Services: [
+    { label: 'Conference Facilities', href: '#conference' },
+    { label: 'Events Planning',       href: '#events' },
+    { label: 'Mobile Kitchen',        href: null },
+  ],
 }
-
-const noLink = new Set(['Mobile Kitchen'])
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -68,24 +76,16 @@ export default function Footer() {
 
             {/* Social links */}
             <div className="flex gap-3">
-              {/* Facebook */}
-              <a href="#" aria-label="Facebook" className="w-9 h-9 border border-white/15 flex items-center justify-center hover:border-gold transition-colors duration-200 group">
+              <a href="https://www.facebook.com/HotelItoyaBusia" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-9 h-9 border border-white/15 flex items-center justify-center hover:border-gold transition-colors duration-200 group">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-white/70 group-hover:text-gold transition-colors">
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
                 </svg>
               </a>
-              {/* Instagram */}
-              <a href="#" aria-label="Instagram" className="w-9 h-9 border border-white/15 flex items-center justify-center hover:border-gold transition-colors duration-200 group">
+              <a href="https://www.instagram.com/hotel_itoya?igsh=cTExaWJxdThobngx" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-9 h-9 border border-white/15 flex items-center justify-center hover:border-gold transition-colors duration-200 group">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-white/70 group-hover:text-gold transition-colors">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                   <circle cx="12" cy="12" r="4" />
                   <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-                </svg>
-              </a>
-              {/* Twitter / X */}
-              <a href="#" aria-label="Twitter" className="w-9 h-9 border border-white/15 flex items-center justify-center hover:border-gold transition-colors duration-200 group">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-white/70 group-hover:text-gold transition-colors">
-                  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
                 </svg>
               </a>
             </div>
@@ -96,11 +96,11 @@ export default function Footer() {
             <div key={heading}>
               <p className="font-sans text-xs tracking-widest uppercase text-white mb-5">{heading}</p>
               <ul className="space-y-3">
-                {links.map((link) => (
-                  <li key={link}>
-                    {noLink.has(link)
-                      ? <span className="font-sans font-light text-sm text-white/60">{link}</span>
-                      : <a href="#" className="font-sans font-light text-sm text-white hover:text-gold transition-colors duration-150">{link}</a>
+                {links.map(({ label, href }) => (
+                  <li key={label}>
+                    {href
+                      ? <a href={href} className="font-sans font-light text-sm text-white hover:text-gold transition-colors duration-150">{label}</a>
+                      : <span className="font-sans font-light text-sm text-white/60">{label}</span>
                     }
                   </li>
                 ))}

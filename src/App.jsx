@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, lazy, Suspense } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import AboutSection from './components/AboutSection'
@@ -7,15 +7,16 @@ import RoomsPreview from './components/RoomsPreview'
 import DiningSection from './components/DiningSection'
 import ConferenceSection from './components/ConferenceSection'
 import EventsSection from './components/EventsSection'
-import GallerySection from './components/GallerySection'
-import Testimonials from './components/Testimonials'
 import LocationSection from './components/LocationSection'
 import ContactSection from './components/ContactSection'
 import Footer from './components/Footer'
 import ParkingSection from './components/ParkingSection'
-import ChatBot from './components/ChatBot'
 import ReceptionSection from './components/ReceptionSection'
 import BookingModal from './components/BookingModal'
+
+const GallerySection  = lazy(() => import('./components/GallerySection'))
+const Testimonials    = lazy(() => import('./components/Testimonials'))
+const ChatBot         = lazy(() => import('./components/ChatBot'))
 
 export default function App() {
   const [bookingOpen,     setBookingOpen]     = useState(false)
@@ -38,14 +39,21 @@ export default function App() {
         <ConferenceSection />
         <EventsSection />
         <SignatureExperiences />
-        <GallerySection />
-        <Testimonials />
+        <Suspense fallback={null}>
+          <GallerySection />
+        </Suspense>
+        <Suspense fallback={null}>
+          <Testimonials />
+        </Suspense>
         <LocationSection />
         <ParkingSection />
         <ContactSection />
-        <ChatBot />
       </main>
       <Footer />
+
+      <Suspense fallback={null}>
+        <ChatBot />
+      </Suspense>
 
       <BookingModal
         isOpen={bookingOpen}
