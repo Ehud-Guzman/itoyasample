@@ -122,7 +122,7 @@ export default function Footer() {
                 href="https://glimmerink.co.ke/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white font-semibold underline hover:text-gold transition-colors duration-200"
+                className="text-white font-semibold hover:text-gold transition-colors duration-200"
               >
                 Glimmerink Creations
               </a>
