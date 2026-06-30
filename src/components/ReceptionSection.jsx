@@ -4,14 +4,14 @@ export default function ReceptionSection() {
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* Section Intro */}
         <div className="text-center mb-12 lg:mb-16">
-          <p className="text-gold text-[11px] uppercase tracking-[0.3em] font-sans font-medium">
+          <p className="text-primary text-[11px] uppercase tracking-[0.3em] font-sans font-medium">
             Arrival Experience
           </p>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-ink mt-2">
             Reception &amp; Concierge
           </h2>
           <div className="w-20 h-[2px] bg-gold mx-auto mt-4" />
-          <p className="text-ink/60 max-w-2xl mx-auto mt-4">
+          <p className="text-ink/70 max-w-2xl mx-auto mt-4">
             From the moment you arrive, our team is dedicated to making your stay
             seamless, warm, and unforgettable.
           </p>
@@ -41,7 +41,7 @@ export default function ReceptionSection() {
               <h3 className="font-serif text-2xl md:text-4xl lg:text-5xl leading-tight">
                 A Warm Welcome
                 <br />
-                <span className="text-gold-light">Awaits You</span>
+                <span className="text-white/90">Awaits You</span>
               </h3>
               <p className="text-white/80 text-sm md:text-base max-w-xl mt-3 leading-relaxed">
                 Our 24‑hour reception and dedicated concierge team are here to
@@ -62,7 +62,7 @@ export default function ReceptionSection() {
               <span className="text-xl">🤝</span>
             </div>
             <h4 className="font-serif text-lg text-ink/90">Seamless Check‑in</h4>
-            <p className="text-ink/60 text-sm mt-2 leading-relaxed">
+            <p className="text-ink/70 text-sm mt-2 leading-relaxed">
               Express check‑in with a personal greeting. Our team ensures your
               arrival is effortless and welcoming.
             </p>
@@ -74,7 +74,7 @@ export default function ReceptionSection() {
               <span className="text-xl">🏨</span>
             </div>
             <h4 className="font-serif text-lg text-ink/90">Dedicated Concierge</h4>
-            <p className="text-ink/60 text-sm mt-2 leading-relaxed">
+            <p className="text-ink/70 text-sm mt-2 leading-relaxed">
               From restaurant reservations to local tours — we handle the details
               so you can focus on enjoying your stay.
             </p>
@@ -86,7 +86,7 @@ export default function ReceptionSection() {
               <span className="text-xl">🎁</span>
             </div>
             <h4 className="font-serif text-lg text-ink/90">Personalised Services</h4>
-            <p className="text-ink/60 text-sm mt-2 leading-relaxed">
+            <p className="text-ink/70 text-sm mt-2 leading-relaxed">
               Luggage assistance, room preferences, special requests — our team
               anticipates your every need.
             </p>
@@ -97,7 +97,7 @@ export default function ReceptionSection() {
         <div className="text-center mt-12">
           <a
             href="#contact"
-            className="inline-flex items-center gap-3 font-sans text-[11px] uppercase tracking-[0.25em] text-gold hover:text-gold-dark border-b border-gold/30 hover:border-gold transition-colors pb-1.5"
+            className="inline-flex items-center gap-3 font-sans text-[11px] uppercase tracking-[0.25em] text-primary hover:text-primary-dark border-b border-primary/30 hover:border-primary transition-colors pb-1.5"
           >
             Speak with our concierge team →
           </a>

@@ -107,7 +107,7 @@ export default function RoomsPreview({ onBookRoom }) {
                 <em>Stays</em>
               </h2>
             </div>
-            <p className="font-sans font-light text-ink/60 max-w-md text-sm leading-relaxed md:text-right">
+            <p className="font-sans font-light text-ink/70 max-w-md text-sm leading-relaxed md:text-right">
               Spaces thoughtfully designed around comfort,
               convenience, and a refined hospitality experience.
             </p>
@@ -130,7 +130,7 @@ export default function RoomsPreview({ onBookRoom }) {
                   <span
                     className={`
                       px-3 py-1 uppercase tracking-[0.2em] text-[10px] font-medium rounded-sm
-                      ${room.featured ? 'bg-gold text-white' : 'bg-white/95 text-primary'}
+                      ${room.featured ? 'bg-gold text-ink' : 'bg-white/95 text-primary'}
                     `}
                   >
                     {room.tag}
@@ -156,11 +156,11 @@ export default function RoomsPreview({ onBookRoom }) {
                   {room.pricePerNight && (
                     <p className="font-sans text-sm font-semibold text-primary mb-3">
                       KES {room.pricePerNight.toLocaleString()}
-                      <span className="font-normal text-ink/40 ml-1">/ night</span>
+                      <span className="font-normal text-ink/60 ml-1">/ night</span>
                     </p>
                   )}
 
-                  <p className="font-sans text-sm text-ink/60 leading-relaxed mb-7 flex-1">
+                  <p className="font-sans text-sm text-ink/70 leading-relaxed mb-7 flex-1">
                     {room.description}
                   </p>
 
@@ -169,7 +169,7 @@ export default function RoomsPreview({ onBookRoom }) {
                     {(room.features || []).map((feature) => (
                       <span
                         key={feature}
-                        className="px-3 py-1 text-xs border border-stone text-ink/60 rounded-sm"
+                        className="px-3 py-1 text-xs border border-stone text-ink/70 rounded-sm"
                       >
                         {feature}
                       </span>
@@ -183,7 +183,7 @@ export default function RoomsPreview({ onBookRoom }) {
                       text-center py-4 uppercase tracking-[0.2em] text-xs font-medium
                       transition-all duration-300 cursor-pointer
                       ${room.featured
-                        ? 'bg-gold text-white hover:bg-gold-dark'
+                        ? 'bg-gold text-ink hover:bg-gold-dark'
                         : 'border border-primary text-primary hover:bg-primary hover:text-white'
                       }
                     `}

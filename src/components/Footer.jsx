@@ -24,19 +24,19 @@ export default function Footer() {
                 alt="Hotel Itoya"
                 className="h-16 w-auto object-contain mix-blend-multiply"
               />
-              <p className="font-sans font-light text-xs tracking-widest uppercase text-gold-light mt-2">
+              <p className="font-sans font-light text-xs tracking-widest uppercase text-white/90 mt-2">
                 Busia, Kenya
               </p>
             </div>
 
-            <p className="font-sans font-light text-white/80 text-sm leading-relaxed mb-6 max-w-xs">
+            <p className="font-sans font-light text-white text-sm leading-relaxed mb-6 max-w-xs">
               Where Hospitality Meets Value.
             </p>
 
             {/* Homeland Itoya partnership */}
             <div className="mb-6">
               <div className="w-12 h-px bg-gold/50 mb-4" />
-              <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-gold-light/70 mb-3">
+              <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-white/90 mb-3">
                 In Partnership With
               </p>
               <a
@@ -56,7 +56,7 @@ export default function Footer() {
                   <p className="text-white text-sm font-serif transition-colors duration-200 group-hover:text-gold-light">
                     Homeland Itoya
                   </p>
-                  <p className="text-white/50 text-[10px] uppercase tracking-[0.15em]">
+                  <p className="text-white/90 text-[10px] uppercase tracking-[0.15em]">
                     Events &amp; Catering
                   </p>
                 </div>
@@ -91,11 +91,11 @@ export default function Footer() {
           {/* Link columns */}
           {Object.entries(footerLinks).map(([heading, links]) => (
             <div key={heading}>
-              <p className="font-sans text-xs tracking-widest uppercase text-gold-light mb-5">{heading}</p>
+              <p className="font-sans text-xs tracking-widest uppercase text-white mb-5">{heading}</p>
               <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link}>
-                    <a href="#" className="font-sans font-light text-sm text-white/80 hover:text-white transition-colors duration-150">
+                    <a href="#" className="font-sans font-light text-sm text-white hover:text-gold transition-colors duration-150">
                       {link}
                     </a>
                   </li>
@@ -110,17 +110,17 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-5">
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-center">
-            <p className="font-sans text-xs text-white/60">
+            <p className="font-sans text-xs text-white/90">
               © {year} Hotel Itoya. All rights reserved. Busia, Kenya.
             </p>
-            <span className="hidden sm:inline text-white/20">|</span>
-            <span className="font-sans text-xs text-white/75">
+            <span aria-hidden="true" className="hidden sm:inline text-white/20">|</span>
+            <span className="font-sans text-xs text-white/90">
               Created &amp; managed by{' '}
               <a
                 href="https://glimmerink.co.ke/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gold hover:text-gold-light transition-colors duration-200 font-medium"
+                className="text-white font-semibold underline hover:text-gold transition-colors duration-200"
               >
                 Glimmerink Creations
               </a>

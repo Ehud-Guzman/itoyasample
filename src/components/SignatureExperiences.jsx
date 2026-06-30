@@ -64,7 +64,7 @@ export default function SignatureExperiences() {
         <div className="text-center max-w-2xl mx-auto mb-12">
 
           {/* Changed to white for clarity */}
-          <p className="section-label text-white/80 mb-4">
+          <p className="section-label text-white mb-4">
             Experience Itoya
           </p>
 
@@ -72,10 +72,10 @@ export default function SignatureExperiences() {
 
           {/* Heading remains white */}
           <h2 className="section-heading-light mb-4 text-2xl md:text-3xl text-white">
-            Signature <em className="text-gold-light not-italic">Experiences</em>
+            Signature <em className="text-white not-italic">Experiences</em>
           </h2>
 
-          <p className="text-white/60 leading-relaxed">
+          <p className="text-white/90 leading-relaxed">
            Where Hospitality meets Value
           </p>
 
@@ -98,7 +98,7 @@ export default function SignatureExperiences() {
               </div>
 
               {/* Label — changed to white/70 for better readability */}
-              <p className="section-label text-white/70 mb-3">
+              <p className="section-label text-white/90 mb-3">
                 {exp.label}
               </p>
 
@@ -106,7 +106,7 @@ export default function SignatureExperiences() {
                 {exp.title}
               </h3>
 
-              <p className="text-white/60 text-sm leading-relaxed mb-6">
+              <p className="text-white/90 text-sm leading-relaxed mb-6">
                 {exp.description}
               </p>
 

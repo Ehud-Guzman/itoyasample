@@ -49,7 +49,7 @@ export default function DiningSection() {
             </h2>
           </div>
           <div className="lg:text-right">
-            <p className="font-sans font-light text-ink/60 leading-relaxed mb-6 max-w-md ml-auto">
+            <p className="font-sans font-light text-ink/70 leading-relaxed mb-6 max-w-md ml-auto">
               Our kitchen brings together fresh, local ingredients and skilled preparation
               to deliver a dining experience that is warm, satisfying, and memorable — for
               every guest, every visit.
@@ -77,7 +77,7 @@ export default function DiningSection() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
             <div className="absolute bottom-6 left-7">
               <p className="font-serif text-2xl text-white mb-1">The Restaurant</p>
-              <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-gold-light">Open Daily · All Guests Welcome</p>
+              <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-white/90">Open Daily · All Guests Welcome</p>
             </div>
           </div>
 
@@ -93,7 +93,7 @@ export default function DiningSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               <div className="absolute bottom-5 left-5 right-5">
                 <p className="font-serif text-xl text-white">Fresh, Local, Crafted</p>
-                <p className="font-sans text-xs text-white/70 mt-1 leading-relaxed">
+                <p className="font-sans text-xs text-white/90 mt-1 leading-relaxed">
                   Every dish prepared with care using quality local produce.
                 </p>
               </div>
@@ -101,7 +101,7 @@ export default function DiningSection() {
 
             {/* Quick hours card */}
             <div className="bg-primary p-6 rounded-sm">
-              <p className="font-sans text-[9px] uppercase tracking-[0.3em] text-gold-light mb-3">Dining Hours</p>
+              <p className="font-sans text-[9px] uppercase tracking-[0.3em] text-white mb-3">Dining Hours</p>
               <div className="space-y-2">
                 {[
                   ['Breakfast', '6:30 AM – 10:00 AM'],
@@ -109,13 +109,13 @@ export default function DiningSection() {
                   ['Dinner',    '6:00 PM – 10:00 PM'],
                 ].map(([meal, time]) => (
                   <div key={meal} className="flex justify-between items-center">
-                    <span className="font-sans text-xs text-white/70">{meal}</span>
-                    <span className="font-sans text-xs text-gold-light font-medium">{time}</span>
+                    <span className="font-sans text-xs text-white/90">{meal}</span>
+                    <span className="font-sans text-xs text-white font-medium">{time}</span>
                   </div>
                 ))}
               </div>
               <div className="mt-4 pt-4 border-t border-white/10">
-                <p className="font-sans text-[10px] text-white/50">Room service available on request</p>
+                <p className="font-sans text-[10px] text-white/90">Room service available on request</p>
               </div>
             </div>
           </div>
@@ -128,7 +128,7 @@ export default function DiningSection() {
             <div key={h.label} className="bg-white border border-stone/60 p-6 rounded-sm hover:border-gold/40 transition-colors duration-200">
               <p className="text-2xl mb-3">{h.icon}</p>
               <p className="font-serif text-lg text-ink mb-2">{h.label}</p>
-              <p className="font-sans text-xs text-ink/55 leading-relaxed">{h.desc}</p>
+              <p className="font-sans text-xs text-ink/70 leading-relaxed">{h.desc}</p>
             </div>
           ))}
         </div>
@@ -158,7 +158,7 @@ export default function DiningSection() {
                       border transition-all duration-200
                       ${resolvedCat === cat
                         ? 'bg-primary border-primary text-white'
-                        : 'border-stone text-ink/50 hover:border-primary hover:text-primary bg-white'
+                        : 'border-stone text-ink/70 hover:border-primary hover:text-primary bg-white'
                       }
                     `}
                   >
@@ -190,7 +190,7 @@ export default function DiningSection() {
                       <div className="flex-1 min-w-0">
                         <p className="font-serif text-lg text-ink leading-snug">{item.name}</p>
                         {item.description && (
-                          <p className="font-sans text-xs text-ink/55 leading-relaxed mt-1.5">
+                          <p className="font-sans text-xs text-ink/70 leading-relaxed mt-1.5">
                             {item.description}
                           </p>
                         )}
@@ -205,7 +205,7 @@ export default function DiningSection() {
             </div>
 
             {/* Footnote */}
-            <p className="text-center font-sans text-xs text-ink/35 mt-8 tracking-wide">
+            <p className="text-center font-sans text-xs text-ink/60 mt-8 tracking-wide">
               Prices inclusive of taxes · Menu subject to seasonal availability
             </p>
           </div>

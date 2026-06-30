@@ -181,7 +181,7 @@ export default function BookingModal({ isOpen, onClose, preselectedRoom = '' }) 
         {/* ── Top bar ─────────────────────────────────────────────── */}
         <div className="flex items-start justify-between px-8 pt-8 pb-6">
           <div>
-            <span className="text-[9px] tracking-[0.4em] uppercase text-gold font-medium">
+            <span className="text-[9px] tracking-[0.4em] uppercase text-primary font-medium">
               Hotel Itoya · Busia
             </span>
             <h2 className="font-serif text-[1.35rem] text-ink mt-1 leading-snug">
@@ -317,8 +317,8 @@ function StepRoom({ data, set, errors, clearErr, today, minCheckout, room, night
                     </p>
                   )}
                 </div>
-                <p className={`text-sm font-medium shrink-0 ml-4 ${selected ? 'text-white' : 'text-gold'}`}>
-                  {kes(r.price)}<span className={`text-[10px] ml-0.5 ${selected ? 'text-white/50' : 'text-ink/35'}`}>/night</span>
+                <p className={`text-sm font-medium shrink-0 ml-4 ${selected ? 'text-white' : 'text-primary'}`}>
+                  {kes(r.price)}<span className={`text-[10px] ml-0.5 ${selected ? 'text-white/90' : 'text-ink/60'}`}>/night</span>
                 </p>
               </button>
             )

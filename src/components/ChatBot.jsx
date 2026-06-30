@@ -309,7 +309,7 @@ export default function ChatBot() {
                   <button
                     key={label}
                     onClick={() => send(query)}
-                    className="rounded-full border border-gold/40 bg-gold/5 px-3 py-1.5 text-xs text-gold hover:bg-gold hover:text-white transition-all"
+                    className="rounded-full border border-primary/40 bg-primary/5 px-3 py-1.5 text-xs text-primary hover:bg-primary hover:text-white transition-all"
                   >
                     {label}
                   </button>

@@ -151,15 +151,15 @@ export default function Hero() {
           <div className="flex whitespace-nowrap animate-scroll-trust">
             {[0, 1, 2].map(i => (
               <span key={i} className="inline-flex items-center gap-6 px-10 font-serif text-xs tracking-[0.22em] text-white">
-                <span className="text-gold">✦</span>
+                <span aria-hidden="true" className="text-white/70">✦</span>
                 Premium Accommodation
-                <span className="text-white/30">·</span>
+                <span aria-hidden="true" className="text-white/70">·</span>
                 Conference Facilities
-                <span className="text-white/30">·</span>
+                <span aria-hidden="true" className="text-white/70">·</span>
                 Business Hospitality
-                <span className="text-white/30">·</span>
+                <span aria-hidden="true" className="text-white/70">·</span>
                 Refined Guest Experience
-                <span className="text-gold">✦</span>
+                <span aria-hidden="true" className="text-white/70">✦</span>
               </span>
             ))}
           </div>

@@ -22,7 +22,7 @@
 @layer components {
   /* Button variants */
   .btn-primary {
-    @apply inline-flex items-center justify-center bg-gold text-white font-sans font-medium tracking-widest uppercase text-xs px-8 py-4 transition-all duration-200 hover:bg-gold-dark;
+    @apply inline-flex items-center justify-center bg-gold text-ink font-sans font-medium tracking-widest uppercase text-xs px-8 py-4 transition-all duration-200 hover:bg-gold-dark;
   }
 
   .btn-outline {
@@ -35,7 +35,7 @@
 
   /* Section label */
   .section-label {
-    @apply font-sans font-medium tracking-widest uppercase text-xs text-gold;
+    @apply font-sans font-medium tracking-widest uppercase text-xs text-primary;
   }
 
   /* Section heading */

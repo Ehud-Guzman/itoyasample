@@ -77,7 +77,7 @@ export default function ConferenceSection() {
 
           <div className="lg:text-right">
 
-            <p className="font-sans font-light text-ink/60 leading-relaxed mb-6 max-w-md ml-auto">
+            <p className="font-sans font-light text-ink/70 leading-relaxed mb-6 max-w-md ml-auto">
               Flexible spaces created for meetings, conferences, and memorable occasions —
               delivered with comfort, professionalism, and attention to detail.
             </p>
@@ -98,8 +98,8 @@ export default function ConferenceSection() {
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
             {highlights.map((h) => (
               <div key={h.label} className="px-8 py-6 text-center">
-                <p className="font-serif text-2xl md:text-3xl text-gold-light font-medium">{h.value}</p>
-                <p className="font-sans text-xs text-white/60 tracking-wide mt-1">{h.label}</p>
+                <p className="font-serif text-2xl md:text-3xl text-white font-medium">{h.value}</p>
+                <p className="font-sans text-xs text-white/90 tracking-wide mt-1">{h.label}</p>
               </div>
             ))}
           </div>
@@ -123,7 +123,7 @@ export default function ConferenceSection() {
                 <div className="absolute inset-0 bg-primary/30 group-hover:bg-primary/40 transition-colors duration-200" />
 
                 {/* Capacity badge */}
-                <div className="absolute top-4 right-4 bg-gold text-white font-sans text-xs tracking-widest uppercase px-3 py-1">
+                <div className="absolute top-4 right-4 bg-gold text-ink font-sans text-xs tracking-widest uppercase px-3 py-1">
                   {venue.capacity}
                 </div>
               </div>
@@ -131,14 +131,14 @@ export default function ConferenceSection() {
               {/* Card content */}
               <div className="bg-white p-7 border border-stone border-t-0">
                 <h3 className="font-serif text-xl text-ink font-medium mb-3">{venue.title}</h3>
-                <p className="font-sans font-light text-ink/60 text-sm leading-relaxed mb-5">
+                <p className="font-sans font-light text-ink/70 text-sm leading-relaxed mb-5">
                   {venue.description}
                 </p>
 
                 {/* Features */}
                 <ul className="space-y-2 mb-6">
                   {venue.features.map((feat) => (
-                    <li key={feat} className="flex items-center gap-3 font-sans text-xs text-ink/60">
+                    <li key={feat} className="flex items-center gap-3 font-sans text-xs text-ink/70">
                       <span className="w-3 h-px bg-gold flex-shrink-0" />
                       {feat}
                     </li>
@@ -162,12 +162,12 @@ export default function ConferenceSection() {
             <p className="font-serif text-xl md:text-2xl text-white font-medium mb-2">
               Planning a Corporate Event?
             </p>
-            <p className="font-sans font-light text-white/70 text-sm">
+            <p className="font-sans font-light text-white/90 text-sm">
               Our events team will handle every detail. Tell us about your requirements.
             </p>
           </div>
           <div className="flex gap-4 flex-shrink-0 flex-wrap justify-center md:justify-start">
-            <a href="#contact" className="bg-gold text-white font-sans font-medium tracking-widest uppercase text-xs px-8 py-4 hover:bg-gold-dark transition-colors duration-200">
+            <a href="#contact" className="bg-gold text-ink font-sans font-medium tracking-widest uppercase text-xs px-8 py-4 hover:bg-gold-dark transition-colors duration-200">
               Plan Your Event
             </a>
             <a

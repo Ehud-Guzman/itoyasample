@@ -41,7 +41,7 @@ export default function LocationSection() {
             <br />
             <em>Hotel Itoya</em>
           </h2>
-          <p className="font-sans font-light text-ink/55 max-w-md mx-auto text-sm leading-relaxed">
+          <p className="font-sans font-light text-ink/70 max-w-md mx-auto text-sm leading-relaxed">
             Conveniently located in the heart of Busia — minutes from the Kenya–Uganda
             border crossing and accessible from all major routes.
           </p>
@@ -69,13 +69,13 @@ export default function LocationSection() {
 
             {/* Contact info */}
             <div>
-              <p className="font-sans text-[9px] uppercase tracking-[0.35em] text-gold mb-5">Contact & Address</p>
+              <p className="font-sans text-[9px] uppercase tracking-[0.35em] text-primary mb-5">Contact & Address</p>
               <div className="space-y-4">
                 {details.map((d) => (
                   <div key={d.label} className="flex gap-4">
                     <div className="w-px bg-gold/30 flex-shrink-0 mt-1" />
                     <div>
-                      <p className="font-sans text-[9px] uppercase tracking-[0.25em] text-ink/35 mb-1">{d.label}</p>
+                      <p className="font-sans text-[9px] uppercase tracking-[0.25em] text-ink/60 mb-1">{d.label}</p>
                       {d.href ? (
                         <a
                           href={d.href}
@@ -94,13 +94,13 @@ export default function LocationSection() {
 
             {/* Directions */}
             <div>
-              <p className="font-sans text-[9px] uppercase tracking-[0.35em] text-gold mb-5">Getting Here</p>
+              <p className="font-sans text-[9px] uppercase tracking-[0.35em] text-primary mb-5">Getting Here</p>
               <div className="space-y-3">
                 {directions.map((d) => (
                   <div key={d.from} className="bg-mist border-l-2 border-gold/40 pl-4 pr-4 py-3.5 flex items-center justify-between gap-4">
                     <div>
                       <p className="font-sans text-xs font-semibold text-ink/80 mb-0.5">From {d.from}</p>
-                      <p className="font-sans text-[11px] text-ink/45">{d.via}</p>
+                      <p className="font-sans text-[11px] text-ink/70">{d.via}</p>
                     </div>
                     <span className="font-sans text-xs font-medium text-primary whitespace-nowrap shrink-0">{d.time}</span>
                   </div>

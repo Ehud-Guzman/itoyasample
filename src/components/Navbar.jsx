@@ -77,11 +77,11 @@ export default function Navbar({ onBookNow }) {
               <div className="flex whitespace-nowrap animate-marquee">
                 {[0, 1, 2].map(i => (
                   <span key={i} className="inline-block px-8 font-serif text-xs tracking-[0.22em] text-white">
-                    <span className="text-gold mr-3">✦</span>
+                    <span aria-hidden="true" className="text-white/70 mr-3">✦</span>
                     In partnership with Homeland Itoya Events
-                    <span className="text-gold mx-4">·</span>
+                    <span aria-hidden="true" className="text-white/70 mx-4">·</span>
                     Elevating events &amp; outside catering with distinction
-                    <span className="text-gold ml-3">✦</span>
+                    <span aria-hidden="true" className="text-white/70 ml-3">✦</span>
                   </span>
                 ))}
               </div>
@@ -115,7 +115,7 @@ export default function Navbar({ onBookNow }) {
             <div className="hidden sm:flex flex-col leading-none">
               <div className="h-px w-full bg-gold/50 mb-1.5" />
               <span className="font-serif text-[11.5px] tracking-[0.3em] text-ink/70 uppercase">Busia</span>
-              <span className="text-[7.5px] uppercase tracking-[0.4em] text-gold/60 mt-0.5">Kenya</span>
+              <span className="text-[7.5px] uppercase tracking-[0.4em] text-ink/60 mt-0.5">Kenya</span>
             </div>
           </a>
 
@@ -144,7 +144,7 @@ export default function Navbar({ onBookNow }) {
                   {link.label}
                 </a>
                 {i < navLinks.length - 1 && (
-                  <span className="text-gold/30 text-[9px] select-none pointer-events-none">|</span>
+                  <span aria-hidden="true" className="text-gold/30 text-[9px] select-none pointer-events-none">|</span>
                 )}
               </Fragment>
               )

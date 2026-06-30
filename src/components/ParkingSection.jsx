@@ -21,7 +21,7 @@ export default function ParkingSection() {
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* Section Intro */}
         <div className="text-center mb-12 lg:mb-16">
-          <p className="text-gold text-[11px] uppercase tracking-[0.3em] font-sans font-medium">
+          <p className="text-primary text-[11px] uppercase tracking-[0.3em] font-sans font-medium">
             Guest Services
           </p>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-ink mt-2">
@@ -60,7 +60,7 @@ export default function ParkingSection() {
 
           {/* Right: Content */}
           <div className="flex flex-col justify-center p-8 lg:p-12 xl:p-16">
-            <span className="text-gold text-[11px] uppercase tracking-[0.3em] font-sans font-medium">
+            <span className="text-primary text-[11px] uppercase tracking-[0.3em] font-sans font-medium">
               Parking &amp; Valet
             </span>
             <h3 className="font-serif text-2xl md:text-3xl lg:text-4xl text-ink leading-tight mt-2">
@@ -87,7 +87,7 @@ export default function ParkingSection() {
             </ul>
             <a
               href="#contact"
-              className="inline-block mt-8 font-sans text-[11px] uppercase tracking-[0.25em] text-gold hover:text-gold-dark border-b border-gold/30 hover:border-gold transition-colors pb-1"
+              className="inline-block mt-8 font-sans text-[11px] uppercase tracking-[0.25em] text-primary hover:text-primary-dark border-b border-primary/30 hover:border-primary transition-colors pb-1"
             >
               Enquire about parking →
             </a>
@@ -98,7 +98,7 @@ export default function ParkingSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 rounded-2xl overflow-hidden shadow-2xl shadow-black/5 border border-stone/100">
           {/* Left: Content */}
           <div className="flex flex-col justify-center p-8 lg:p-12 xl:p-16 order-2 md:order-1">
-            <span className="text-gold text-[11px] uppercase tracking-[0.3em] font-sans font-medium">
+            <span className="text-primary text-[11px] uppercase tracking-[0.3em] font-sans font-medium">
               Culinary Excellence
             </span>
             <h3 className="font-serif text-2xl md:text-3xl lg:text-4xl text-ink leading-tight mt-2">
@@ -125,7 +125,7 @@ export default function ParkingSection() {
             </ul>
             <a
               href="#contact"
-              className="inline-block mt-8 font-sans text-[11px] uppercase tracking-[0.25em] text-gold hover:text-gold-dark border-b border-gold/30 hover:border-gold transition-colors pb-1"
+              className="inline-block mt-8 font-sans text-[11px] uppercase tracking-[0.25em] text-primary hover:text-primary-dark border-b border-primary/30 hover:border-primary transition-colors pb-1"
             >
               Explore catering options →
             </a>

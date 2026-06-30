@@ -14,7 +14,7 @@ const eventTypes = [
 ]
 
 const CATEGORY_COLOURS = {
-  Wedding:   'bg-gold text-white',
+  Wedding:   'bg-gold text-ink',
   Corporate: 'bg-primary text-white',
   Cultural:  'bg-ink text-gold',
   Catering:  'bg-white/20 text-white',
@@ -49,7 +49,7 @@ export default function EventsSection() {
           <div className="lg:text-right">
             {/* Homeland Itoya logo lockup */}
             <div className="inline-flex flex-col items-start lg:items-end gap-3 mb-6">
-              <p className="font-sans text-[9px] uppercase tracking-[0.35em] text-white/40">In partnership with</p>
+              <p className="font-sans text-[9px] uppercase tracking-[0.35em] text-white/80">In partnership with</p>
               <div className="flex items-center gap-3">
                 <div className="bg-white/95 rounded-full p-2 border border-white/20 shadow-lg">
                   <img
@@ -62,11 +62,11 @@ export default function EventsSection() {
                 </div>
                 <div className="text-left">
                   <p className="font-serif text-white text-lg">Homeland Itoya</p>
-                  <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-gold/70">Events &amp; Catering</p>
+                  <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-gold">Events &amp; Catering</p>
                 </div>
               </div>
             </div>
-            <p className="font-sans font-light text-white/55 leading-relaxed mb-6 max-w-md lg:ml-auto text-sm">
+            <p className="font-sans font-light text-white/90 leading-relaxed mb-6 max-w-md lg:ml-auto text-sm">
               Through our partnership with Homeland Itoya Events, we bring world-class
               outside catering and event management to any location — from intimate
               gatherings to grand celebrations.
@@ -74,7 +74,7 @@ export default function EventsSection() {
             <div className="flex gap-3 flex-wrap justify-start lg:justify-end">
               <a
                 href="#contact"
-                className="inline-block bg-gold text-white font-sans font-medium tracking-widest uppercase text-xs px-7 py-3.5 hover:bg-gold-dark transition-colors duration-200"
+                className="inline-block bg-gold text-ink font-sans font-medium tracking-widest uppercase text-xs px-7 py-3.5 hover:bg-gold-dark transition-colors duration-200"
               >
                 Plan an Event
               </a>
@@ -137,7 +137,7 @@ export default function EventsSection() {
                       </p>
                     )}
                     {event.description && (
-                      <p className="font-sans text-xs text-white/60 leading-relaxed mt-2 line-clamp-2">
+                      <p className="font-sans text-xs text-white/90 leading-relaxed mt-2 line-clamp-2">
                         {event.description}
                       </p>
                     )}

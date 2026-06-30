@@ -43,7 +43,7 @@ export default function AboutSection() {
               {stats.map((s) => (
                 <div key={s.label}>
                   <p className="font-serif text-2xl text-primary font-medium">{s.value}</p>
-                  <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-ink/45 mt-1">{s.label}</p>
+                  <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-ink/60 mt-1">{s.label}</p>
                 </div>
               ))}
             </div>
@@ -78,10 +78,10 @@ export default function AboutSection() {
             <div className="absolute bottom-6 left-6 bg-white px-6 py-5 shadow-xl max-w-[260px]">
               <div className="mb-4">
                 <p className="font-serif text-4xl text-primary font-medium">60+</p>
-                <p className="font-sans text-[10px] uppercase tracking-[0.22em] text-ink/65 mt-0.5">Rooms &amp; Suites</p>
+                <p className="font-sans text-[10px] uppercase tracking-[0.22em] text-ink/70 mt-0.5">Rooms &amp; Suites</p>
               </div>
               <div className="gold-divider mb-3" />
-              <p className="font-sans text-[10px] uppercase tracking-[0.28em] text-ink/50 leading-relaxed">
+              <p className="font-sans text-[10px] uppercase tracking-[0.28em] text-ink/70 leading-relaxed">
                 Busia, Kenya
                 <br />
                 An Ayoti Group Property

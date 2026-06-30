@@ -56,7 +56,7 @@ export default function Testimonials() {
 
         <div className="text-center max-w-2xl mx-auto mb-12">
 
-          <p className="section-label text-white/80 mb-3">
+          <p className="section-label text-white mb-3">
             Guest Experience
           </p>
 
@@ -65,10 +65,10 @@ export default function Testimonials() {
           <h2 className="section-heading-light text-4xl md:text-5xl mb-5 text-white">
             Designed Around
             <br />
-            <em className="text-gold-light not-italic">Every Stay</em>
+            <em className="text-white not-italic">Every Stay</em>
           </h2>
 
-          <p className="text-white/70 leading-relaxed text-sm md:text-base">
+          <p className="text-white/90 leading-relaxed text-sm md:text-base">
             Hospitality experiences crafted to create comfort,
             trust, and memorable moments.
           </p>
@@ -104,7 +104,7 @@ export default function Testimonials() {
                 "
               </div>
 
-              <p className="text-white/85 text-sm leading-relaxed mb-8">
+              <p className="text-white text-sm leading-relaxed mb-8">
                 {t.quote}
               </p>
 
@@ -112,7 +112,7 @@ export default function Testimonials() {
 
                 <div className="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center">
 
-                  <span className="text-gold font-serif">
+                  <span className="text-white font-serif">
                     {t.initials}
                   </span>
 
@@ -124,7 +124,7 @@ export default function Testimonials() {
                     {t.title}
                   </p>
 
-                  <p className="text-white/60 text-xs">
+                  <p className="text-white/90 text-xs">
                     Guest Experience
                   </p>
 
@@ -144,7 +144,7 @@ export default function Testimonials() {
 
           <div className="w-24 h-px bg-gold/30 mx-auto mb-6" />
 
-          <p className="text-white/60 text-sm">
+          <p className="text-white/90 text-sm">
             Designed to inspire confidence,
             comfort, and memorable hospitality.
           </p>

@@ -110,7 +110,7 @@ export default function GallerySection() {
             <br />
             <em>Hotel Itoya</em>
           </h2>
-          <p className="font-sans font-light text-ink/60 max-w-xl mx-auto leading-relaxed text-sm">
+          <p className="font-sans font-light text-ink/70 max-w-xl mx-auto leading-relaxed text-sm">
             Explore spaces designed around comfort, hospitality, and memorable experiences.
           </p>
         </div>
@@ -126,7 +126,7 @@ export default function GallerySection() {
                 border transition-all duration-200
                 ${activeFilter === f.key
                   ? 'bg-primary border-primary text-white'
-                  : 'border-stone text-ink/50 hover:border-primary hover:text-primary bg-white'
+                  : 'border-stone text-ink/70 hover:border-primary hover:text-primary bg-white'
                 }
               `}
             >
@@ -179,7 +179,7 @@ export default function GallerySection() {
           </div>
         )}
 
-        <p className="text-center font-sans text-xs text-ink/35 mt-6 tracking-wide">
+        <p className="text-center font-sans text-xs text-ink/60 mt-6 tracking-wide">
           Showing {visible.length} of {filtered.length} · Click any image to view full size
         </p>
 

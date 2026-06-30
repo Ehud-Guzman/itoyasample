@@ -15,10 +15,10 @@ const initialForm = {
 function Field({ label, children }) {
   return (
     <div>
-      <label className="block font-sans text-[9px] uppercase tracking-[0.3em] text-ink/40 mb-2">
-        {label}
+      <label className="block">
+        <span className="block font-sans text-[9px] uppercase tracking-[0.3em] text-ink/60 mb-2">{label}</span>
+        {children}
       </label>
-      {children}
     </div>
   )
 }
@@ -53,7 +53,7 @@ export default function ContactSection() {
             <br />
             <em>Or Plan Something Bigger</em>
           </h2>
-          <p className="font-sans font-light text-ink/60 leading-relaxed text-sm">
+          <p className="font-sans font-light text-ink/70 leading-relaxed text-sm">
             Whether you're booking accommodation, organising an event,
             or planning a corporate stay — our team is ready to assist.
           </p>
@@ -69,37 +69,37 @@ export default function ContactSection() {
               <p className="font-serif text-2xl text-white">Contact Information</p>
 
               <div>
-                <p className="font-sans text-[9px] uppercase tracking-[0.3em] text-gold-light/70 mb-2">Phone</p>
-                <a href="tel:+254714302777" className="block font-sans text-white hover:text-gold-light transition-colors duration-200">
+                <p className="font-sans text-[9px] uppercase tracking-[0.3em] text-white/90 mb-2">Phone</p>
+                <a href="tel:+254714302777" className="block font-sans text-white hover:text-gold transition-colors duration-200">
                   +254 714 302 777
                 </a>
-                <a href="tel:+254714666222" className="block font-sans text-white/60 hover:text-gold-light transition-colors duration-200 mt-1">
+                <a href="tel:+254714666222" className="block font-sans text-white/90 hover:text-gold transition-colors duration-200 mt-1">
                   +254 714 666 222
                 </a>
               </div>
 
               <div>
-                <p className="font-sans text-[9px] uppercase tracking-[0.3em] text-gold-light/70 mb-2">Email</p>
-                <a href="mailto:info@hotelitoya.co.ke" className="font-sans text-white hover:text-gold-light transition-colors duration-200 break-all">
+                <p className="font-sans text-[9px] uppercase tracking-[0.3em] text-white/90 mb-2">Email</p>
+                <a href="mailto:info@hotelitoya.co.ke" className="font-sans text-white hover:text-gold transition-colors duration-200 break-all">
                   info@hotelitoya.co.ke
                 </a>
               </div>
 
               <div>
-                <p className="font-sans text-[9px] uppercase tracking-[0.3em] text-gold-light/70 mb-2">Location</p>
-                <p className="font-sans text-white/80 leading-relaxed text-sm">
+                <p className="font-sans text-[9px] uppercase tracking-[0.3em] text-white/90 mb-2">Location</p>
+                <p className="font-sans text-white leading-relaxed text-sm">
                   Town Centre Road<br />
                   Busia, Kenya
                 </p>
-                <p className="font-sans text-white/45 text-xs mt-1.5">
+                <p className="font-sans text-white/90 text-xs mt-1.5">
                   Minutes from Busia Border Crossing
                 </p>
               </div>
 
               <div>
-                <p className="font-sans text-[9px] uppercase tracking-[0.3em] text-gold-light/70 mb-2">Hours</p>
-                <p className="font-sans text-white/80 text-sm">Reservations Team · Daily 7 AM – 10 PM</p>
-                <p className="font-sans text-gold-light text-sm mt-1">Front Desk · 24 Hours</p>
+                <p className="font-sans text-[9px] uppercase tracking-[0.3em] text-white/90 mb-2">Hours</p>
+                <p className="font-sans text-white text-sm">Reservations Team · Daily 7 AM – 10 PM</p>
+                <p className="font-sans text-white text-sm mt-1">Front Desk · 24 Hours</p>
               </div>
             </div>
 
@@ -250,7 +250,7 @@ export default function ContactSection() {
                     Send Enquiry
                   </button>
 
-                  <p className="font-sans text-[10px] text-ink/35 text-center">
+                  <p className="font-sans text-[10px] text-ink/60 text-center">
                     We respond within a few hours · No payment required at this stage
                   </p>
 
