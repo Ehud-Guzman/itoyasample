@@ -20,9 +20,10 @@ export default function Footer() {
             {/* Hotel Itoya logo — mix-blend-multiply dissolves white bg into footer */}
             <div className="mb-5">
               <img
-                src="/logos/hotel-itoya-logo.png"
+                src="/logos/hotel-itoya-logo.webp"
                 alt="Hotel Itoya"
                 className="h-16 w-auto object-contain mix-blend-multiply"
+                width="260" height="156"
               />
               <p className="font-sans font-light text-xs tracking-widest uppercase text-white/90 mt-2">
                 Busia, Kenya
@@ -47,9 +48,10 @@ export default function Footer() {
               >
                 <div className="bg-white/95 rounded-full p-1.5 border border-white/30 shadow-md flex-shrink-0 transition-transform duration-200 group-hover:scale-105">
                   <img
-                    src="/logos/homeland-logo.png"
+                    src="/logos/homeland-logo.webp"
                     alt="Homeland Itoya"
                     className="h-10 w-auto object-contain"
+                    width="200" height="90"
                   />
                 </div>
                 <div>
