@@ -70,7 +70,10 @@ export default function BookingModal({ isOpen, onClose, preselectedRoom = '' }) 
     : today
 
   useEffect(() => {
-    if (!isOpen) return
+    if (!isOpen) {
+      clearInterval(pollRef.current)
+      return
+    }
     setStep(0); setErrors({}); setPayState('idle')
     setBookingRef(''); setSubmitting(false)
     setData(d => ({ ...d, room: preselectedRoom || '' }))

@@ -128,7 +128,7 @@ const FAQ = [
   },
   {
     keywords: ['location', 'address', 'where are you', 'how to get', 'directions', 'map', 'find you', 'busia'],
-    answer: `We are on **B1 Kisumu–Busia Road, Busia, Kenya** — right on the Kenya-Uganda border.\n\n• From Nairobi: ~7 hrs via A104\n• From Kisumu: ~1.5 hrs via A1\n• From Kampala: ~2 hrs via A109`,
+    answer: `We are on **Town Centre Road, Busia, Kenya** — right on the Kenya-Uganda border.\n\n• From Nairobi: ~7 hrs via A104\n• From Kisumu: ~1.5 hrs via A1\n• From Kampala: ~2 hrs via A109`,
   },
   {
     keywords: ['airport', 'shuttle', 'transfer', 'taxi', 'pickup', 'pick up', 'transport'],
