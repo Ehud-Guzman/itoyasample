@@ -79,10 +79,8 @@ export default function Hero() {
           className={`
             max-w-2xl w-full
             transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]
-            ${showMotto
-              ? 'opacity-100 translate-y-0'
-              : 'opacity-0 translate-y-3 pointer-events-none'
-            }
+            opacity-100 translate-y-0
+            ${showMotto ? '' : 'lg:opacity-0 lg:translate-y-3 lg:pointer-events-none'}
           `}
         >
           {/* Gold accent line */}

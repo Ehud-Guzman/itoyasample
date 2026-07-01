@@ -464,11 +464,17 @@ export default function ChatBot() {
   const [loading, setLoading] = useState(false);
   const [showChips, setShowChips] = useState(true);
   const [atTop, setAtTop] = useState(true);
+  const [mobileScrolled, setMobileScrolled] = useState(false);
   const endRef = useRef(null);
   const inputRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => setAtTop(window.scrollY <= 180);
+    const handleScroll = () => {
+      const nearFooter = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 220
+      const bookingBarUp = window.scrollY > 80 && !nearFooter && window.innerWidth >= 1024
+      setAtTop(bookingBarUp)
+      setMobileScrolled(window.scrollY > 80)
+    }
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -497,17 +503,40 @@ export default function ChatBot() {
   return (
     <>
       {!isOpen && (
-        <button
-          onClick={() => setIsOpen(true)}
-          className={`fixed ${atTop ? 'bottom-12' : 'bottom-4'} right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-gold text-white shadow-xl shadow-gold/30 transition-all duration-500 hover:scale-105 hover:shadow-2xl`}
-          aria-label="Open chat"
-        >
-          <FaComments size={22} />
-        </button>
+        <>
+          {/* Desktop — floating circle, lifts above booking bar when it's visible */}
+          <button
+            onClick={() => setIsOpen(true)}
+            className={`hidden lg:flex fixed ${atTop ? 'bottom-20' : 'bottom-6'} right-6 z-50 h-14 w-14 items-center justify-center rounded-full bg-gold text-white shadow-xl shadow-gold/30 transition-all duration-500 hover:scale-105 hover:shadow-2xl`}
+            aria-label="Open chat"
+          >
+            <FaComments size={22} />
+          </button>
+
+          {/* Mobile — full bar at top, small circle when scrolled */}
+          {!mobileScrolled ? (
+            <button
+              onClick={() => setIsOpen(true)}
+              className="lg:hidden fixed bottom-0 inset-x-0 z-50 flex items-center justify-center gap-2.5 bg-gold text-white py-3.5 shadow-[0_-4px_20px_rgba(0,0,0,0.12)] transition-all duration-500"
+              aria-label="Open chat"
+            >
+              <FaComments size={16} />
+              <span className="text-[11px] uppercase tracking-[0.28em] font-medium">Chat with us</span>
+            </button>
+          ) : (
+            <button
+              onClick={() => setIsOpen(true)}
+              className="lg:hidden fixed bottom-5 right-4 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-gold text-white shadow-lg shadow-gold/30 transition-all duration-500"
+              aria-label="Open chat"
+            >
+              <FaComments size={18} />
+            </button>
+          )}
+        </>
       )}
 
       {isOpen && (
-        <div className={`fixed ${atTop ? 'bottom-12' : 'bottom-4'} right-3 sm:right-6 z-50 flex h-[520px] w-[calc(100vw-1.5rem)] sm:w-[380px] max-w-[380px] flex-col overflow-hidden rounded-2xl bg-white shadow-2xl shadow-black/10 border border-stone/20 transition-all duration-500`}>
+        <div className={`fixed ${atTop ? 'bottom-24' : 'bottom-4'} right-3 sm:right-6 z-50 flex h-[520px] w-[calc(100vw-1.5rem)] sm:w-[380px] max-w-[380px] flex-col overflow-hidden rounded-2xl bg-white shadow-2xl shadow-black/10 border border-stone/20 transition-all duration-500`}>
           {/* Header */}
           <div className="flex items-center justify-between bg-ink px-5 py-4">
             <div>
