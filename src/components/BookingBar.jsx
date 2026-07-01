@@ -1,7 +1,14 @@
 import { useState, useEffect } from 'react'
-import { FiCalendar, FiUsers, FiMapPin, FiChevronDown } from 'react-icons/fi'
+import { FiCalendar, FiUsers, FiChevronDown, FiBriefcase } from 'react-icons/fi'
 
-const ROOM_OPTIONS = [
+const ROOMS = [
+  { id: 'standard',     label: 'Standard Room',    price: 3500  },
+  { id: 'deluxe',       label: 'Deluxe Room',       price: 6000  },
+  { id: 'super-deluxe', label: 'Super Deluxe Room', price: 7000  },
+  { id: 'executive',    label: 'Executive Room',    price: 10000 },
+]
+
+const GUEST_OPTIONS = [
   '1 Room, 1 Guest',
   '1 Room, 2 Guests',
   '2 Rooms, 2 Guests',
@@ -24,7 +31,10 @@ export default function BookingBar({ onBookNow }) {
   const [visible,  setVisible]  = useState(false)
   const [checkIn,  setCheckIn]  = useState(todayStr())
   const [checkOut, setCheckOut] = useState(tomorrowStr())
-  const [rooms,    setRooms]    = useState(ROOM_OPTIONS[0])
+  const [roomId,   setRoomId]   = useState(ROOMS[0].id)
+  const [guests,   setGuests]   = useState(GUEST_OPTIONS[0])
+
+  const selectedRoom = ROOMS.find(r => r.id === roomId)
 
   useEffect(() => {
     const handle = () => {
@@ -50,14 +60,22 @@ export default function BookingBar({ onBookNow }) {
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-4">
           <div className="flex items-end gap-3">
 
-            {/* Hotel — static */}
-            <div className="flex flex-col gap-1.5 min-w-[155px]">
-              <span className="text-[8.5px] uppercase tracking-[0.28em] text-ink/55 font-sans font-medium flex items-center gap-1.5">
-                <FiMapPin size={9} /> Hotel
-              </span>
-              <div className="border border-stone/35 bg-stone/5 px-3 py-[9px]">
-                <span className="block text-[13px] font-serif text-ink leading-tight">Hotel Itoya</span>
-                <span className="block text-[9px] uppercase tracking-[0.2em] text-ink/45 mt-0.5">Busia, Kenya</span>
+            {/* Room Type */}
+            <div className="flex flex-col gap-1.5 flex-1">
+              <label className="text-[8.5px] uppercase tracking-[0.28em] text-ink/55 font-sans font-medium flex items-center gap-1.5">
+                <FiBriefcase size={9} /> Room Type
+              </label>
+              <div className="border border-stone/35 bg-white hover:border-gold/60 transition-colors duration-200 flex items-center px-3 gap-2">
+                <select
+                  value={roomId}
+                  onChange={e => setRoomId(e.target.value)}
+                  className="w-full py-[9px] text-[12.5px] font-sans text-ink bg-transparent outline-none cursor-pointer appearance-none"
+                >
+                  {ROOMS.map(r => (
+                    <option key={r.id} value={r.id}>{r.label}</option>
+                  ))}
+                </select>
+                <FiChevronDown size={12} className="text-ink/35 shrink-0 pointer-events-none" />
               </div>
             </div>
 
@@ -112,11 +130,11 @@ export default function BookingBar({ onBookNow }) {
               <div className="border border-stone/35 bg-white hover:border-gold/60 transition-colors duration-200 flex items-center px-3 gap-2">
                 <FiUsers size={12} className="text-ink/35 shrink-0" />
                 <select
-                  value={rooms}
-                  onChange={e => setRooms(e.target.value)}
+                  value={guests}
+                  onChange={e => setGuests(e.target.value)}
                   className="w-full py-[9px] text-[12.5px] font-sans text-ink bg-transparent outline-none cursor-pointer appearance-none"
                 >
-                  {ROOM_OPTIONS.map(o => (
+                  {GUEST_OPTIONS.map(o => (
                     <option key={o} value={o}>{o}</option>
                   ))}
                 </select>
@@ -126,18 +144,22 @@ export default function BookingBar({ onBookNow }) {
 
             <div className="w-px h-14 bg-stone/20 self-end mb-0.5" />
 
-            {/* CTA */}
+            {/* Price + CTA */}
             <div className="flex flex-col gap-1.5 shrink-0">
               <span className="text-[8.5px] uppercase tracking-[0.28em] text-ink/55 font-sans font-medium">
-                Starting From
+                Rate Per Night
               </span>
               <div className="flex items-stretch">
-                <div className="border border-r-0 border-stone/35 px-4 py-[9px] flex flex-col justify-center">
-                  <span className="text-[15px] font-serif text-ink leading-tight">KES 3,500</span>
-                  <span className="text-[9px] font-sans text-ink/45 tracking-[0.15em]">per night</span>
+                <div className="border border-r-0 border-stone/35 px-4 py-[9px] flex flex-col justify-center min-w-[110px]">
+                  <span className="text-[15px] font-serif text-ink leading-tight">
+                    KES {selectedRoom.price.toLocaleString('en-KE')}
+                  </span>
+                  <span className="text-[9px] font-sans text-ink/45 tracking-[0.12em]">
+                    {selectedRoom.label}
+                  </span>
                 </div>
                 <button
-                  onClick={onBookNow}
+                  onClick={() => onBookNow(roomId)}
                   className="
                     bg-[#ff020a] text-white
                     px-8
