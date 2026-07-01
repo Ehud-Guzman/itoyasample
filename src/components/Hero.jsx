@@ -1,8 +1,6 @@
-/* Hero Section — cinematic, premium, hotel-first */
 import { useEffect, useRef, useState } from 'react'
 
 export default function Hero() {
-  const [stripVisible, setStripVisible] = useState(true)
   const [isTransitioning, setIsTransitioning] = useState(false)
   const isFirstRun = useRef(true)
 
@@ -24,7 +22,9 @@ export default function Hero() {
 
   const [currentSlide, setCurrentSlide] = useState(0)
 
-  // Slideshow autoplay
+  // Motto visible on every 3rd slide (index 2, 5, 8, 11, …)
+  const showMotto = currentSlide % 3 === 2
+
   useEffect(() => {
     const id = setInterval(() => {
       setCurrentSlide((s) => (s + 1) % slides.length)
@@ -32,14 +32,12 @@ export default function Hero() {
     return () => clearInterval(id)
   }, [])
 
-  // Preload the next slide only to avoid flooding bandwidth at startup
   useEffect(() => {
     const next = (currentSlide + 1) % slides.length
     const img = new Image()
     img.src = slides[next]
   }, [currentSlide])
 
-  // Trigger cinematic text transition on slide change
   useEffect(() => {
     if (isFirstRun.current) {
       isFirstRun.current = false
@@ -49,13 +47,6 @@ export default function Hero() {
     const timer = setTimeout(() => setIsTransitioning(false), 1400)
     return () => clearTimeout(timer)
   }, [currentSlide])
-
-  // Strip fades out once user scrolls past the hero view
-  useEffect(() => {
-    const handleScroll = () => setStripVisible(window.scrollY <= 180)
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   return (
     <section id="home" className="relative min-h-[100svh] max-h-[100svh] sm:max-h-none sm:min-h-screen flex flex-col overflow-hidden mx-1.5">
@@ -78,103 +69,66 @@ export default function Hero() {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 flex-1 flex flex-col max-w-7xl mx-auto px-6 lg:px-10 pt-40 pb-16 w-full">
+      <div className="relative z-10 flex-1 flex flex-col max-w-7xl mx-auto px-6 lg:px-10 pt-20 lg:pt-40 pb-16 w-full">
+
+        {/* Motto — fades in/out on every 3rd slide */}
         <div
           className={`
             max-w-2xl
-            transition-all duration-[1500ms] ease-[cubic-bezier(0.4,0,0.2,1)]
-            ${isTransitioning
-              ? 'opacity-0 scale-[0.95] blur-[4px] -rotate-[1deg] translate-y-2'
-              : 'opacity-100 scale-100 blur-0 rotate-0 translate-y-0'
-            }
+            transition-opacity duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]
+            ${showMotto ? 'opacity-100' : 'opacity-0 pointer-events-none'}
           `}
         >
-          {/* Gold accent line */}
-          <div className="relative flex justify-center mb-6">
-            <div
-              className={`
-                h-[2px] bg-gold/80 transition-all duration-[1400ms] ease-[cubic-bezier(0.4,0,0.2,1)]
-                ${isTransitioning ? 'w-0 opacity-0' : 'w-16 opacity-100'}
-              `}
-            />
-          </div>
-
-          <h1 className="font-serif font-light text-white leading-[1.15] mb-3 text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl tracking-wide drop-shadow-lg text-center">
-            <span
-              className={`
-                block transition-all duration-[1200ms] ease-[cubic-bezier(0.4,0,0.2,1)] delay-100
-                ${isTransitioning ? 'opacity-0 -translate-y-6' : 'opacity-100 translate-y-0'}
-              `}
-            >
-              Where Hospitality
-            </span>
-            <span
-              className={`
-                block font-normal text-gold-light transition-all duration-[1200ms] ease-[cubic-bezier(0.4,0,0.2,1)] delay-250
-                ${isTransitioning ? 'opacity-0 translate-y-6' : 'opacity-100 translate-y-0'}
-              `}
-            >
-              Meets Value
-            </span>
-          </h1>
-
-          <p
+          <div
             className={`
-              text-white/90 text-[10px] sm:text-[11px] tracking-[0.35em] uppercase font-sans font-light mt-6 text-center
-              transition-all duration-[1000ms] ease-[cubic-bezier(0.4,0,0.2,1)] delay-400
-              ${isTransitioning ? 'opacity-0 -translate-y-3' : 'opacity-100 translate-y-0'}
+              transition-all duration-[1500ms] ease-[cubic-bezier(0.4,0,0.2,1)]
+              ${isTransitioning
+                ? 'opacity-0 scale-[0.95] blur-[4px] -rotate-[1deg] translate-y-2'
+                : 'opacity-100 scale-100 blur-0 rotate-0 translate-y-0'
+              }
             `}
           >
-            Hotel Itoya · Busia, Kenya
-          </p>
-        </div>
-      </div>
+            {/* Gold accent line */}
+            <div className="relative flex justify-center mb-6">
+              <div
+                className={`
+                  h-[2px] bg-gold/80 transition-all duration-[1400ms] ease-[cubic-bezier(0.4,0,0.2,1)]
+                  ${isTransitioning ? 'w-0 opacity-0' : 'w-16 opacity-100'}
+                `}
+              />
+            </div>
 
-      {/* TRUST STRIP — bottom of hero flex column, fades on scroll */}
-      <div
-        className={`
-          relative z-20 w-full
-          transition-all duration-500
-          ${stripVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'}
-        `}
-      >
-        <div className="
-          relative overflow-hidden
-          bg-gradient-to-b from-[#ff020a]/30 to-[#ff020a]/90
-          border-t border-white/10
-          py-3
-        ">
-          {/* Left fade mask */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#c80008] to-transparent z-10 pointer-events-none" />
-          {/* Right fade mask */}
-          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#c80008] to-transparent z-10 pointer-events-none" />
-          <div className="flex whitespace-nowrap animate-scroll-trust">
-            {[0, 1, 2].map(i => (
-              <span key={i} className="inline-flex items-center gap-6 px-10 font-serif text-xs tracking-[0.22em] text-white">
-                <span aria-hidden="true" className="text-white/70">✦</span>
-                Premium Accommodation
-                <span aria-hidden="true" className="text-white/70">·</span>
-                Conference Facilities
-                <span aria-hidden="true" className="text-white/70">·</span>
-                Business Hospitality
-                <span aria-hidden="true" className="text-white/70">·</span>
-                Refined Guest Experience
-                <span aria-hidden="true" className="text-white/70">✦</span>
+            <h1 className="font-serif font-light text-white leading-[1.15] mb-3 text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl tracking-wide drop-shadow-lg text-center">
+              <span
+                className={`
+                  block transition-all duration-[1200ms] ease-[cubic-bezier(0.4,0,0.2,1)] delay-100
+                  ${isTransitioning ? 'opacity-0 -translate-y-6' : 'opacity-100 translate-y-0'}
+                `}
+              >
+                Where Hospitality
               </span>
-            ))}
+              <span
+                className={`
+                  block font-normal text-gold-light transition-all duration-[1200ms] ease-[cubic-bezier(0.4,0,0.2,1)] delay-250
+                  ${isTransitioning ? 'opacity-0 translate-y-6' : 'opacity-100 translate-y-0'}
+                `}
+              >
+                Meets Value
+              </span>
+            </h1>
+
+            <p
+              className={`
+                text-white/90 text-[10px] sm:text-[11px] tracking-[0.35em] uppercase font-sans font-light mt-6 text-center
+                transition-all duration-[1000ms] ease-[cubic-bezier(0.4,0,0.2,1)] delay-400
+                ${isTransitioning ? 'opacity-0 -translate-y-3' : 'opacity-100 translate-y-0'}
+              `}
+            >
+              Hotel Itoya · Busia, Kenya
+            </p>
           </div>
         </div>
       </div>
-
-      <style>{`
-        @keyframes scrollTrust {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-33.333%); }
-        }
-        .animate-scroll-trust {
-          animation: scrollTrust 22s linear infinite;
-        }
-      `}</style>
 
     </section>
   )

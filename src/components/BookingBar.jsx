@@ -1,0 +1,169 @@
+import { useState, useEffect } from 'react'
+import { FiCalendar, FiUsers, FiMapPin, FiChevronDown } from 'react-icons/fi'
+
+const ROOM_OPTIONS = [
+  '1 Room, 1 Guest',
+  '1 Room, 2 Guests',
+  '2 Rooms, 2 Guests',
+  '2 Rooms, 3 Guests',
+  '2 Rooms, 4 Guests',
+  '3 Rooms, 4 Guests',
+  '3 Rooms, 6 Guests',
+]
+
+function todayStr() {
+  return new Date().toISOString().split('T')[0]
+}
+function tomorrowStr() {
+  const d = new Date()
+  d.setDate(d.getDate() + 1)
+  return d.toISOString().split('T')[0]
+}
+
+export default function BookingBar({ onBookNow }) {
+  const [visible,  setVisible]  = useState(false)
+  const [checkIn,  setCheckIn]  = useState(todayStr())
+  const [checkOut, setCheckOut] = useState(tomorrowStr())
+  const [rooms,    setRooms]    = useState(ROOM_OPTIONS[0])
+
+  useEffect(() => {
+    const handle = () => {
+      const nearFooter = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 220
+      setVisible(window.scrollY > 80 && !nearFooter)
+    }
+    window.addEventListener('scroll', handle, { passive: true })
+    return () => window.removeEventListener('scroll', handle)
+  }, [])
+
+  return (
+    <div
+      role="complementary"
+      aria-label="Quick booking"
+      className={`
+        fixed bottom-0 inset-x-0 z-40
+        hidden lg:block
+        transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
+        ${visible ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0 pointer-events-none'}
+      `}
+    >
+      <div className="bg-white border-t-2 border-[#ff020a] shadow-[0_-8px_40px_rgba(0,0,0,0.18)]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-4">
+          <div className="flex items-end gap-3">
+
+            {/* Hotel — static */}
+            <div className="flex flex-col gap-1.5 min-w-[155px]">
+              <span className="text-[8.5px] uppercase tracking-[0.28em] text-ink/55 font-sans font-medium flex items-center gap-1.5">
+                <FiMapPin size={9} /> Hotel
+              </span>
+              <div className="border border-stone/35 bg-stone/5 px-3 py-[9px]">
+                <span className="block text-[13px] font-serif text-ink leading-tight">Hotel Itoya</span>
+                <span className="block text-[9px] uppercase tracking-[0.2em] text-ink/45 mt-0.5">Busia, Kenya</span>
+              </div>
+            </div>
+
+            <div className="w-px h-14 bg-stone/20 self-end mb-0.5" />
+
+            {/* Check In */}
+            <div className="flex flex-col gap-1.5 flex-1">
+              <label className="text-[8.5px] uppercase tracking-[0.28em] text-ink/55 font-sans font-medium flex items-center gap-1.5">
+                <FiCalendar size={9} /> Check In
+              </label>
+              <div className="border border-stone/35 bg-white hover:border-gold/60 transition-colors duration-200 flex items-center px-3 gap-2">
+                <FiCalendar size={12} className="text-ink/35 shrink-0" />
+                <input
+                  type="date"
+                  value={checkIn}
+                  min={todayStr()}
+                  onChange={e => {
+                    setCheckIn(e.target.value)
+                    if (e.target.value >= checkOut) {
+                      const next = new Date(e.target.value)
+                      next.setDate(next.getDate() + 1)
+                      setCheckOut(next.toISOString().split('T')[0])
+                    }
+                  }}
+                  className="w-full py-[9px] text-[12.5px] font-sans text-ink bg-transparent outline-none cursor-pointer"
+                />
+              </div>
+            </div>
+
+            {/* Check Out */}
+            <div className="flex flex-col gap-1.5 flex-1">
+              <label className="text-[8.5px] uppercase tracking-[0.28em] text-ink/55 font-sans font-medium flex items-center gap-1.5">
+                <FiCalendar size={9} /> Check Out
+              </label>
+              <div className="border border-stone/35 bg-white hover:border-gold/60 transition-colors duration-200 flex items-center px-3 gap-2">
+                <FiCalendar size={12} className="text-ink/35 shrink-0" />
+                <input
+                  type="date"
+                  value={checkOut}
+                  min={checkIn}
+                  onChange={e => setCheckOut(e.target.value)}
+                  className="w-full py-[9px] text-[12.5px] font-sans text-ink bg-transparent outline-none cursor-pointer"
+                />
+              </div>
+            </div>
+
+            {/* Rooms & Guests */}
+            <div className="flex flex-col gap-1.5 flex-1">
+              <label className="text-[8.5px] uppercase tracking-[0.28em] text-ink/55 font-sans font-medium flex items-center gap-1.5">
+                <FiUsers size={9} /> Rooms &amp; Guests
+              </label>
+              <div className="border border-stone/35 bg-white hover:border-gold/60 transition-colors duration-200 flex items-center px-3 gap-2">
+                <FiUsers size={12} className="text-ink/35 shrink-0" />
+                <select
+                  value={rooms}
+                  onChange={e => setRooms(e.target.value)}
+                  className="w-full py-[9px] text-[12.5px] font-sans text-ink bg-transparent outline-none cursor-pointer appearance-none"
+                >
+                  {ROOM_OPTIONS.map(o => (
+                    <option key={o} value={o}>{o}</option>
+                  ))}
+                </select>
+                <FiChevronDown size={12} className="text-ink/35 shrink-0 pointer-events-none" />
+              </div>
+            </div>
+
+            <div className="w-px h-14 bg-stone/20 self-end mb-0.5" />
+
+            {/* CTA */}
+            <div className="flex flex-col gap-1.5 shrink-0">
+              <span className="text-[8.5px] uppercase tracking-[0.28em] text-ink/55 font-sans font-medium">
+                Starting From
+              </span>
+              <div className="flex items-stretch">
+                <div className="border border-r-0 border-stone/35 px-4 py-[9px] flex flex-col justify-center">
+                  <span className="text-[15px] font-serif text-ink leading-tight">KES 3,500</span>
+                  <span className="text-[9px] font-sans text-ink/45 tracking-[0.15em]">per night</span>
+                </div>
+                <button
+                  onClick={onBookNow}
+                  className="
+                    bg-[#ff020a] text-white
+                    px-8
+                    text-[10px] uppercase tracking-[0.28em] font-semibold
+                    hover:bg-[#c80008] active:scale-[0.98]
+                    transition-all duration-200
+                    whitespace-nowrap
+                  "
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div className="bg-stone/5 border-t border-stone/15 px-6 lg:px-10 py-1.5 flex items-center justify-between">
+          <span className="text-[8px] uppercase tracking-[0.25em] text-ink/40 font-sans">
+            Best rate guaranteed when you book direct
+          </span>
+          <span className="text-[8px] uppercase tracking-[0.25em] text-ink/40 font-sans">
+            Free cancellation available · No hidden fees
+          </span>
+        </div>
+      </div>
+    </div>
+  )
+}

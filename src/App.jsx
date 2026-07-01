@@ -13,6 +13,7 @@ import Footer from './components/Footer'
 import ParkingSection from './components/ParkingSection'
 import ReceptionSection from './components/ReceptionSection'
 import BookingModal from './components/BookingModal'
+import BookingBar   from './components/BookingBar'
 
 const GallerySection  = lazy(() => import('./components/GallerySection'))
 const Testimonials    = lazy(() => import('./components/Testimonials'))
@@ -50,6 +51,8 @@ export default function App() {
         <ContactSection />
       </main>
       <Footer />
+
+      <BookingBar onBookNow={() => openBooking()} />
 
       <Suspense fallback={null}>
         <ChatBot />
