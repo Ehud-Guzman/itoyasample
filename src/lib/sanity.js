@@ -6,12 +6,20 @@ const DATASET   = import.meta.env.VITE_SANITY_DATASET   || 'production'
 
 export const SANITY_CONFIGURED = Boolean(PROJECT_ID)
 
-export const client = createClient({
-  projectId: PROJECT_ID,
-  dataset:   DATASET,
-  useCdn:    true,
-  apiVersion: '2024-06-01',
-})
+// createClient throws on an empty projectId, which would blank the whole site
+// when env vars are missing at build time — only create it when configured.
+export const client = SANITY_CONFIGURED
+  ? createClient({
+      projectId: PROJECT_ID,
+      dataset:   DATASET,
+      useCdn:    true,
+      apiVersion: '2024-06-01',
+      // Default is 5 retries with backoff — on an origin missing from the Sanity
+      // CORS allowlist that turns into a multi-second failed-request storm that
+      // blocks page quiescence. One retry, then fall back to local content.
+      maxRetries: 1,
+    })
+  : null
 
 /**
  * Append Sanity CDN resize params to a Sanity image URL.

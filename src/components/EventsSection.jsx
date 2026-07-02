@@ -8,8 +8,8 @@ const EVENTS_QUERY = `*[_type == "specialEvent" && active == true] | order(date 
 
 const eventTypes = [
   { title: 'Wedding Receptions',    desc: 'Elegant setups for your most important day, handled with care.' },
-  { title: 'Corporate Gatherings',  desc: 'Large-scale outdoor events with full catering support.' },
-  { title: 'Outside Catering',      desc: 'Our mobile kitchen brings Hotel Itoya quality to your venue.' },
+  { title: 'Corporate Gatherings',  desc: 'Large-scale outdoor events professionally managed end to end.' },
+  { title: 'Private Functions',     desc: 'Exclusive setups for birthdays, anniversaries, and celebrations.' },
   { title: 'Cultural Celebrations', desc: 'Traditional and modern event setups to mark any occasion.' },
 ]
 
@@ -166,7 +166,7 @@ export default function EventsSection() {
             { src: '/images/events/events-1.webp',       alt: 'Event Setup' },
             { src: '/images/events/homeland-setup.webp', alt: 'Homeland Setup' },
             { src: '/images/events/events-2.webp',       alt: 'Outdoor Event' },
-            { src: '/images/events/events-3.webp',       alt: 'Catering Event' },
+            { src: '/images/events/events-3.webp',       alt: 'Special Event' },
           ].map((img) => (
             <div
               key={img.alt}

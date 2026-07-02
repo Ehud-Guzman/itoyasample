@@ -15,7 +15,7 @@ const FALLBACK_IMAGES = [
   { src: '/images/lounge/lounge-1.webp',                alt: 'Lounge Area',          cat: 'spaces' },
   { src: '/images/reception/reception-1.webp',          alt: 'Reception',            cat: 'spaces' },
   { src: '/images/rooms/sitting-area-1.webp',           alt: 'Sitting Area',         cat: 'rooms' },
-  { src: '/images/rooms/bedroom-1.webp',                alt: 'Guest Bedroom',        cat: 'rooms' },
+ 
   { src: '/images/rooms/standard-room-1.webp',          alt: 'Standard Room',        cat: 'rooms' },
   { src: '/images/rooms/deluxe-room-1.webp',            alt: 'Deluxe Room',          cat: 'rooms' },
   { src: '/images/rooms/executive-room-1.webp',         alt: 'Executive Room',       cat: 'rooms' },

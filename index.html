@@ -107,6 +107,9 @@
     <!-- Preload first hero image for fast LCP -->
     <link rel="preload" as="image" href="/images/exterior/hotel-exterior-1.webp" fetchpriority="high" />
 
+    <!-- Sanity CMS API — queries fire right after hydration -->
+    <link rel="preconnect" href="https://yd71nxev.apicdn.sanity.io" crossorigin />
+
     <!-- Fonts — async to avoid render blocking -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

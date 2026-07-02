@@ -196,14 +196,6 @@ export default function BookingBar({ onBookNow }) {
           </div>
         </div>
 
-        <div className="bg-stone/5 border-t border-stone/15 px-6 lg:px-10 py-1.5 flex items-center justify-between">
-          <span className="text-[8px] uppercase tracking-[0.25em] text-ink/40 font-sans">
-            Best rate guaranteed when you book direct
-          </span>
-          <span className="text-[8px] uppercase tracking-[0.25em] text-ink/40 font-sans">
-            Free cancellation available · No hidden fees
-          </span>
-        </div>
       </div>
     </div>
   )
